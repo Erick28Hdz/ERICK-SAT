@@ -15,6 +15,7 @@ import UniversalImage from "../components/UniversalImg";
 import { Link } from "react-router-dom";
 import CardTitle from "../components/CardTitle";
 import CardDescription from "../components/CardDescrition";
+import { width } from "@mui/system";
 
 const Blog = () => {
 
@@ -83,9 +84,9 @@ const Blog = () => {
       </Box>
 
       <Grid container spacing={4} justifyContent={"center"} margin={5} >
-        {currentArticles.map((article, i) => (
-          <Grid item xs={12} sm={6} md={4} key={i}{...({} as any)}>
-            <BasePaper>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+          {articles.map((article, i) => (
+             <BasePaper sx={{ width: '35%' }}>
               <Link to={`/blog/${article.slug}`} style={{ textDecoration: "none" }}>
                 <CardTitle>{article.title}</CardTitle>
               </Link>
@@ -97,8 +98,8 @@ const Blog = () => {
                 Categoría: {article.category}
               </Typography>
             </BasePaper>
-          </Grid>
-        ))}
+          ))}
+        </Box>
       </Grid>
       <Box
         display="flex"

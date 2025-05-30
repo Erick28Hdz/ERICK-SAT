@@ -1,8 +1,8 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
-interface CardDescriptionProps {
+interface CardDescriptionProps extends TypographyProps {
   children: React.ReactNode;
 }
 
@@ -11,7 +11,7 @@ const StyledDescription = styled(Typography)(({ theme }) => ({
   fontSize: "0.95rem",
   color: "var(--color-beige)",
   marginBottom: theme.spacing(2),
-  textAlign: "center",
+  textAlign: "inherit",
   lineHeight: 1.6,
   transition: "color 0.3s ease, text-shadow 0.3s ease",
 
@@ -21,8 +21,12 @@ const StyledDescription = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const CardDescription: React.FC<CardDescriptionProps> = ({ children }) => {
-  return <StyledDescription variant="body2">{children}</StyledDescription>;
+const CardDescription: React.FC<CardDescriptionProps> = ({ children, ...props }) => {
+  return (
+    <StyledDescription variant="body2" {...props}>
+      {children}
+    </StyledDescription>
+  );
 };
 
 export default CardDescription;

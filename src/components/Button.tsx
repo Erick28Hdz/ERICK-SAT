@@ -67,7 +67,7 @@ const StyledWrapper = styled.div<{ variant: string }>`
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-black);
     border-radius: 50%;
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
