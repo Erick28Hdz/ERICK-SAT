@@ -1,0 +1,303 @@
+.about-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: var(--font-sans);
+  color: var(--color-light);
+  background-color: var(--color-dark-blue);
+}
+
+/* Subtítulos */
+.subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--font-ui);
+  color: var(--color-beige);
+  margin-bottom: 15px;
+}
+
+/* Párrafos */
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-light);
+  font-family: var(--font-sans);
+}
+
+/* Sección general */
+.section {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* Contenido con flexbox */
+.historia-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Texto */
+.historia-text {
+  flex: 1;
+  font-family: var(--font-sans);
+  color: var(--color-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 20px 0px;
+  backdrop-filter: blur(5px);
+  border-left: 2px solid var(--color-light);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.historia-text:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  border-left: 2px solid var(--color-light-blue);
+  border-right: 2px solid var(--color-light-blue);
+}
+
+/* Contenedor de tarjetas */
+.cards-container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Tarjetas base */
+.cards-container .card {
+  background: transparent;
+  border-radius: 20px 0px;
+  padding: 25px;
+  font-family: var(--font-sans);
+  color: var(--color-light);
+  backdrop-filter: blur(8px);
+  border-left: 2px solid var(--color-light);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  border-left: 2px solid var(--color-light-blue);
+  border-right: 2px solid var(--color-light-blue);
+}
+
+/* Subtítulo */
+.subtitle {
+  font-size: 1.6rem;
+  color: var(--color-light-blue);
+  font-family: var(--font-tech);
+  margin-bottom: 15px;
+  text-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
+}
+
+/* Texto base */
+.card .text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-light);
+}
+
+/* Lista de valores */
+.card .list {
+  padding-left: 20px;
+}
+
+.card .list li {
+  margin-bottom: 10px;
+  list-style-type: "🔹";
+  padding-left: 5px;
+}
+
+/* Listas */
+.list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Contenedor principal */
+.founder-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Tarjeta del fundador */
+.founder-card {
+  display: flex;
+  gap: 40px;
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 20px 0px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  border-left: 2px solid var(--color-light);
+  max-width: 1100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+  border-left: 2px solid var(--color-light-blue);
+  border-right: 2px solid var(--color-light-blue);
+}
+
+/* Imagen del fundador */
+.founder-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--color-light-blue);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Texto del fundador */
+.founder-text {
+  color: var(--color-light);
+  font-family: var(--font-sans);
+  max-width: 700px;
+}
+
+/* Título */
+.founder-text .title {
+  font-size: 2rem;
+  font-family: var(--font-tech);
+  margin-bottom: 15px;
+  color: var(--color-light-blue);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+/* Texto descriptivo */
+.founder-text .text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-light);
+}
+
+/*Sección de porqué elegirnos*/
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--color-light);
+}
+
+.benefit:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+  border-bottom: 2px solid var(--color-light-blue);
+}
+
+.benefit .icon {
+  font-size: 2.5rem;
+  color: var(--color-light-blue);
+  margin-bottom: 15px;
+  transition: transform 0.4s ease;
+}
+
+.benefit:hover .icon {
+  transform: scale(1.2) rotate(4deg);
+}
+
+.benefit p {
+  font-size: 1rem;
+  color: var(--color-light);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.benefit {
+  text-align: center;
+}
+
+/* Título con efecto */
+.subtitle.highlight {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--color-light-blue);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .historia-content {
+    flex-direction: column;
+  }
+
+  .historia-title {
+    font-size: 2.2rem;
+  }
+
+  .historia-img-container {
+    max-width: 100%;
+  }
+
+  .historia-text {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .card .text {
+    font-size: 0.95rem;
+  }
+
+  .founder-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .founder-text .title {
+    font-size: 1.6rem;
+  }
+
+  .founder-text .text {
+    font-size: 0.95rem;
+  }
+
+  .benefit .icon {
+    font-size: 2rem;
+  }
+
+  .benefit p {
+    font-size: 0.95rem;
+  }
+
+  .subtitle.highlight {
+    font-size: 1.8rem;
+  }
+}

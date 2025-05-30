@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700&family=Poppins:wght@400;700&display=swap");
+
+/* Reset básico (opcional pero recomendado) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-sans: "Poppins", sans-serif; /* Textos generales */
+  --font-tech: "Orbitron", sans-serif; /* Títulos impactantes */
+  --font-ui: "Inter", sans-serif; /* Navegación y botones */
+
+  /* Colores */
+  --color-light: #f1efec;
+  --color-beige: #d4c9be;
+  --color-dark-blue: #123458;
+  --color-black: #030303;
+  --color-light-blue: #0ff;
+}
+
+/* Títulos responsivos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  max-width: 90vw;
+  word-wrap: break-word;
+}
+
+/* Estilo general del contenedor */
+.universal-container {
+  background-color: var(--color-dark-blue);
+  padding: 2rem !important;
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de imagen universal */
+.universal-img-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 250px; /* Fijamos altura para evitar que se vea aplastada */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen universal */
+.universal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  display: block;
+}
+
+.universal-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Párrafos y textos */
+p {
+  margin-bottom: 1rem;
+  max-width: 90vw;
+}
+
+/* Puedes agregar más reglas globales aquí */
