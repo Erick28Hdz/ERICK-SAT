@@ -5,6 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 import { servicios } from "../data/Servicios";
+import UniversalContainer from "../components/UniversalContainer";
 import SectionTitle from "../components/SectionTitle";
 import IntroSection from "../components/IntroSection";
 import ServiceCard from "../components/ServiceCard";
@@ -63,7 +64,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <Box className="universal-container">
+    <UniversalContainer pb={3} pt={6}>
       <SectionTitle>Nuestros Servicios</SectionTitle>
       <IntroSection
         description={
@@ -113,7 +114,7 @@ const Services: React.FC = () => {
           </Grid>
         </TabPanel>
       ))}
-    </Box>
+    </UniversalContainer>
   );
 };
 

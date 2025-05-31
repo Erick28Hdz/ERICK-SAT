@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
 
-import "../styles/threads.css";
-
 type ThreadsProps = {
   color?: [number, number, number];
   amplitude?: number;
@@ -19,6 +17,15 @@ void main() {
   gl_Position = vec4(position, 0.0, 1.0);
 }
 `;
+
+const threadsContainerStyle: React.CSSProperties = {
+  width: "100%",
+  height: "140%",
+  position: "absolute",
+  top: 0,
+  left: 0,
+  zIndex: 0,
+};
 
 const fragmentShader = `
 precision highp float;
@@ -228,7 +235,7 @@ const Threads: React.FC<ThreadsProps> = ({
     };
   }, [color, amplitude, distance, enableMouseInteraction]);
 
-  return <div ref={containerRef} className="threads-container" {...rest} />;
+  return  <div ref={containerRef} style={threadsContainerStyle} {...rest}/>;
 };
 
 export default Threads;

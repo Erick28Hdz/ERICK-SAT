@@ -89,8 +89,8 @@ const StyledWrapper = styled.div<{ variant: string }>`
   }
 
   .animated-button:hover span:last-child {
-    width: 170px;
-    height: 150px;
+    width: 280px;
+    height: 170px;
     opacity: 1;
   }
 

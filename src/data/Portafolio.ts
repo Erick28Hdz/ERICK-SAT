@@ -7,6 +7,7 @@ export interface Proyecto {
   enlace?: string;
   categoria: string;
   subcategoria: string;
+  fecha: string; 
 }
 
 export const proyectos: Proyecto[] = [
@@ -18,6 +19,7 @@ export const proyectos: Proyecto[] = [
     enlace: "https://github.com/erick/proyecto-auditoria",
     categoria: "Ciberseguridad",
     subcategoria: "Auditoría de red",
+    fecha: "2025-07-18",
   },
   {
     id: 2,
@@ -27,6 +29,7 @@ export const proyectos: Proyecto[] = [
     enlace: "",
     categoria: "Scripts personalizados",
     subcategoria: "Automatización en Linux",
+    fecha: "2025-06-15",
   },
   {
     id: 3,
@@ -36,6 +39,7 @@ export const proyectos: Proyecto[] = [
     enlace: "https://demo.com/plantilla",
     categoria: "Plantillas y aplicaciones web",
     subcategoria: "Sitios institucionales",
+    fecha: "2024-12-05",
   },
   {
     id: 4,
@@ -44,6 +48,7 @@ export const proyectos: Proyecto[] = [
     imagen: "/images/portfolio/curso-linux.jpg",
     categoria: "Educación y Formación",
     subcategoria: "Comandos básicos",
+    fecha: "2024-09-20",
   },
   {
     id: 5,
@@ -53,6 +58,7 @@ export const proyectos: Proyecto[] = [
     enlace: "https://erick28hdz.github.io/PaginaRumbo/",
     categoria: "Desarrollo Web por Niveles",
     subcategoria: "Landing Page",
+    fecha: "2024-07-10",
   },
   {
     id: 6,
@@ -62,5 +68,6 @@ export const proyectos: Proyecto[] = [
     enlace: "https://erick28hdz.github.io/PortafolioWeb/",
     categoria: "Desarrollo Web por Niveles",
     subcategoria: "Portafolios Web",
+    fecha: "2024-06-28",
   }
 ];

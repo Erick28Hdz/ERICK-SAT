@@ -1,8 +1,12 @@
-// aboutData.ts
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+
 export interface AboutItem {
   id: string;
   title: string;
   content: string | string[];
+  Icon?: React.ElementType;  // Añadimos un campo para icono opcional
 }
 
 export const aboutData: AboutItem[] = [
@@ -11,12 +15,14 @@ export const aboutData: AboutItem[] = [
     title: 'Misión',
     content:
       'Brindar soluciones tecnológicas accesibles, seguras y personalizadas a través del desarrollo de software, automatizaciones, formación técnica y servicios de ciberseguridad.',
+    Icon: EmojiObjectsIcon,
   },
   {
     id: 'vision',
     title: 'Visión',
     content:
       'Ser reconocidos como una empresa líder en soluciones tecnológicas integrales en Latinoamérica, destacándose por nuestra capacidad técnica, innovación en ciberseguridad y formación educativa de calidad.',
+    Icon: VisibilityIcon,
   },
   {
     id: 'valores',
@@ -29,5 +35,6 @@ export const aboutData: AboutItem[] = [
       'Seguridad de la información',
       'Compromiso con el cliente',
     ],
+    Icon: VerifiedUserIcon,
   },
 ];

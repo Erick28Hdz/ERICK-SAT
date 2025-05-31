@@ -11,12 +11,10 @@ interface IntroSectionProps {
 const IntroSection: React.FC<IntroSectionProps> = ({ description, imageComponent, imgSrc, imgAlt }) => {
   return (
     <Wrapper>
-      <div className="container">
-        <div className="content">
-          <div className="description">{description}</div>
-          <div className="image">
-            {imageComponent ? imageComponent : <img src={imgSrc} alt={imgAlt} />}
-          </div>
+      <div className="content">
+        <div className="description">{description}</div>
+        <div className="image">
+          {imageComponent ? imageComponent : <img src={imgSrc} alt={imgAlt} />}
         </div>
       </div>
     </Wrapper>
@@ -34,15 +32,12 @@ const Wrapper = styled.section`
   color: var(--color-beige);
   border-bottom: 2px solid var(--color-beige);
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
   .content {
+    max-width: 1200px
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
@@ -60,23 +55,13 @@ const Wrapper = styled.section`
   }
 
   .image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    animation: fadeInRight 1s ease;
-  }
-
-  .image > * {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* ✅ sombra moderna */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  animation: fadeInRight 1s ease;
+}
 
   .image > *:hover {
     transform: scale(1.02);

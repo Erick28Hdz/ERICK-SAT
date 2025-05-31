@@ -2,6 +2,7 @@ import { Box, Typography, Grid, Paper, Avatar } from "@mui/material";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import BusinessIcon from "@mui/icons-material/Business";
 import PublicIcon from "@mui/icons-material/Public";
+import UniversalContainer from "../components/UniversalContainer";
 import SectionTitle from "../components/SectionTitle";
 import IntroSection from "../components/IntroSection";
 import SectionSubtitle from "../components/SectionSubtitle";
@@ -14,9 +15,7 @@ import CardDescription from "../components/CardDescrition";
 
 const Clients = () => {
   return (
-    <Box
-      className="universal-container"
-    >
+    <UniversalContainer pt={6} pb={3}>
       {/* Título principal */}
       <SectionTitle>¿A quién van dirigidos nuestros servicios?</SectionTitle>
 
@@ -48,9 +47,9 @@ const Clients = () => {
         imageComponent={<UniversalImage src="/images/cliente.jpg" alt="Nuestros servicios" />}
       />
       {/* Segmentación */}
-      <SectionSubtitle>🧩 Segmentación por tipo de cliente</SectionSubtitle>
+      <SectionSubtitle >🧩 Segmentación por tipo de cliente</SectionSubtitle>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Grid sx={{ mt: 4 }} container spacing={4} justifyContent="center" >
         {[
           {
             icon: <EmojiPeopleIcon />,
@@ -116,7 +115,7 @@ const Clients = () => {
                   bgcolor: "var(--color-black)",
                   width: 56,
                   height: 56,
-                  mb: 2,
+                  mb: 1,
                 }}
               >
                 {segment.icon}
@@ -132,13 +131,14 @@ const Clients = () => {
 
       {/* Casos de éxito */}
       <Box sx={{ mt: 8 }}>
-        <SectionSubtitle>Casos de Éxito</SectionSubtitle>
+        <SectionSubtitle>🛡️ Casos de Éxito</SectionSubtitle>
         <Box
           sx={{
             display: "flex",
             flexWrap: "wrap",
             gap: 2,
             justifyContent: "center",
+            m: 4,
           }}
         >
           {casosDeExito.map((c, index) => (
@@ -157,14 +157,14 @@ const Clients = () => {
 
       {/* Testimonios */}
       <Box sx={{ mt: 6 }}>
-        <SectionSubtitle>Testimonios</SectionSubtitle>
+        <SectionSubtitle>💬 Testimonios</SectionSubtitle>
         <Box
           sx={{
             display: "flex",
             flexWrap: "wrap",
             gap: 2,
             justifyContent: "center",
-            mt: 4,
+            m: 4,
           }}
         >
           {testimonios.map((t, index) => (
@@ -180,7 +180,7 @@ const Clients = () => {
           ))}
         </Box>
       </Box>
-    </Box >
+    </UniversalContainer>
   );
 };
 

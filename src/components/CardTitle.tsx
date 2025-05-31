@@ -1,9 +1,10 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+import { styled, type SxProps, type Theme } from "@mui/material/styles";
 
 interface CardTitleProps {
   children: React.ReactNode;
+  sx?: SxProps<Theme>;
 }
 
 const StyledTitle = styled(Typography)(({ theme }) => ({
@@ -22,9 +23,9 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const CardTitle: React.FC<CardTitleProps> = ({ children }) => {
+const CardTitle: React.FC<CardTitleProps> = ({ children, sx }) => {
   return (
-    <StyledTitle variant="h4">
+    <StyledTitle variant="h4" sx={sx}>
       {children}
     </StyledTitle>
   );

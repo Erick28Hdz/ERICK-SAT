@@ -4,7 +4,8 @@ export interface Article {
   desc: string;
   content: string;
   category: "ciberseguridad" | "scripts" | "formación" | "casos";
-  image?: string; 
+  image?: string;
+  fecha: string;
 }
 
 const articles: Article[] = [
@@ -31,6 +32,7 @@ Nmap es fundamental para tareas de pentesting, reconocimiento y monitoreo de red
     `,
     category: "ciberseguridad",
     image: "/images/nmap.jpg",
+    fecha: "2025-07-15",
   },
 
   {
@@ -51,7 +53,8 @@ Pasos clave:
 Además, evita usar contraseñas débiles. Usa una combinación de mayúsculas, números y caracteres especiales.
     `,
     category: "ciberseguridad",
-    image: "/images/red-domestica.jpg", 
+    image: "/images/red-domestica.jpg",
+    fecha: "2025-06-28",
   },
 
   // Puedes continuar con los demás artículos igual.

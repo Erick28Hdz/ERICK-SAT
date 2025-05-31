@@ -1,6 +1,8 @@
-import { Container, Image } from 'react-bootstrap';
-import '../styles/Intro.css';
-import '../styles/threads.css';
+import Box from '@mui/material/Box';
+import styled, { keyframes } from "styled-components";
+import UniversalImage from './UniversalImg';
+import CardTitle from './CardTitle';
+import CardDescription from './CardDescrition';
 import Button from './Button';
 import Threads from './Threads';
 
@@ -10,34 +12,68 @@ type IntroProps = {
 
 const Intro = ({ onEnter }: IntroProps) => {
     return (
-        <Container
-            fluid
-            className="intro-container d-flex flex-column justify-content-center align-items-center text-center"
-            style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}
+        <Box
+            sx={{
+                height: '100vh',
+                backgroundColor: 'var(--color-black)',
+                color: 'var(--color-light)',
+                overflow: 'hidden',
+                padding: 2,          // equivale a 16px (2 * 8px spacing)
+                margin: 0,
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+            }}
         >
             {/* Fondo animado */}
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+            <Box style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
                 <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
-            </div>
+            </Box>
 
             {/* Contenido principal encima del fondo */}
-            <div className="fade-in-up" style={{ zIndex: 1, position: 'relative' }}>
-                <Image
-                    src="logo.png"
-                    alt="Logo"
-                    className="logo mb-4"
-                />
-                <p className="intro-subtitle">Bienvenidx a</p>
-                <h1 className="intro-title">ERICK SOFTWARE AND TECHNOLOGY</h1>
-                <p className="intro-description">
+            <FadeInUpBox>
+                <UniversalImage src="logo.png" alt="Logo" sx={{ borderRadius: 0 }}/>
+                <CardTitle sx={{ color: "var(--color-beige)" }}>Bienvenidx a</CardTitle>
+                <IntroTitle>ERICK SOFTWARE AND TECHNOLOGY</IntroTitle>
+                <CardDescription>
                     <i>Soluciones digitales seguras, accesibles y funcionales.</i>
-                </p>
-                <Button onClick={onEnter}>
-                    Ingresar
-                </Button>
-            </div>
-        </Container>
+                </CardDescription>
+                <Button onClick={onEnter}>Ingresar</Button>
+            </FadeInUpBox>
+        </Box>
     );
 };
 
 export default Intro;
+
+const fadeInUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const FadeInUpBox = styled.div`
+  position: relative;
+  z-index: 1;
+  animation: ${fadeInUp} 1.2s ease-out;
+`;
+
+const IntroTitle = styled.h1`
+  font-family: var(--font-tech);
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-light-blue));
+  -webkit-background-clip: text;
+  text-shadow: 2px 2px 10px rgba(0, 183, 255, 0.3);
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  animation: ${fadeInUp} 1.2s ease-out;
+`;

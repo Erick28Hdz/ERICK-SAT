@@ -1,10 +1,9 @@
 import {
-  Box,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
-  SelectChangeEvent,
+  type SelectChangeEvent,
 } from "@mui/material";
 
 interface CustomSelectProps {

@@ -5,6 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 import { proyectos } from "../data/Portafolio";
+import UniversalContainer from "../components/UniversalContainer";
 import SectionTitle from "../components/SectionTitle";
 import IntroSection from "../components/IntroSection";
 import CategoryTabs from "../components/Tabs";
@@ -56,7 +57,7 @@ const Portfolio: React.FC = () => {
   }, [categoriaActual, subcategoria]);
 
   return (
-    <Box sx={{ padding: 4 }} className="universal-container">
+    <UniversalContainer pb={3} pt={6}>
       <SectionTitle>Portafolio de Productos</SectionTitle>
       <IntroSection
         description={
@@ -113,7 +114,7 @@ const Portfolio: React.FC = () => {
           </Grid>
         )}
       </Grid>
-    </Box>
+    </UniversalContainer>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import UniversalContainer from "../components/UniversalContainer";
 import articles from "../data/Articles";
 import { Box, Typography } from "@mui/material";
 import SectionTitle from "../components/SectionTitle";
@@ -28,16 +29,11 @@ const ArticlePage = () => {
   }
 
   return (
-    <Box
-      className="universal-container"
-      sx={{ p: 4, margin: "auto" }}
-      aria-label={`Artículo: ${article.title}`}
+    <UniversalContainer pt={6} pb={3} aria-label={`Artículo: ${article.title}`}
     >
-
-
       <Box
         sx={{
-          display: "flex",
+          width: "100%",     
           mb: 1,
           px: 2,
           py: 0.5,
@@ -45,9 +41,10 @@ const ArticlePage = () => {
           fontWeight: "bold",
           fontFamily: "var(--font-ui)",
           padding: "2rem 0rem 1rem 4rem",
+          textAlign: "left",  
         }}
       >
-        Categoría: <SectionSubtitle as="span">{article.category}</SectionSubtitle>
+        Categoría: <SectionSubtitle align="left" as="span">{article.category}</SectionSubtitle>
       </Box>
       <SectionTitle>{article.title}</SectionTitle>
       <Box
@@ -88,7 +85,7 @@ const ArticlePage = () => {
           ← Volver al Blog
         </Button>
       </Box>
-    </Box>
+    </UniversalContainer>
   );
 };
 
