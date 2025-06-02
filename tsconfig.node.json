@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "composite": true,                     // ✅ Requerido para ser referenciado
+    "composite": true,                    
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
@@ -8,7 +8,6 @@
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
 
