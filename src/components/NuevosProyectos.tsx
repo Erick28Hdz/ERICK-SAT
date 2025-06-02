@@ -12,8 +12,10 @@ const ultimosProyectos = proyectos
 
 const NuevosProyectos: React.FC = () => {
   return (
-    <Box sx={{ px: 3, py: 5 }}>
-      <SectionSubtitle>📰 Nuevos Proyectos</SectionSubtitle>
+    <Box sx={{ px: 3, py: 2, mt: 4, }}>
+      <Box sx={{ textAlign: "center" }}>
+        <SectionSubtitle>📰 Nuevos Proyectos</SectionSubtitle>
+      </Box>
 
       <Grid container spacing={4} justifyContent={"center"} marginTop={2}>
         {ultimosProyectos.map((proyecto) => (

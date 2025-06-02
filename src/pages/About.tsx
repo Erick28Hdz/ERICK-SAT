@@ -8,9 +8,12 @@ import UniversalImage from '../components/UniversalImg';
 import AboutCards from '../components/AboutCard';
 import CardDescription from '../components/CardDescrition';
 import UniversalCard from '../components/UniversalCard';
-import { Build, Lightbulb, SupportAgent, Shield } from "@mui/icons-material";
+import { useScrollTop } from '../hooks/useScrollTop';
+import ValueProposition from '../components/ValueProposition';
 
 const About: React.FC = () => {
+
+  useScrollTop();
   return (
     <UniversalContainer pt={6} pb={3}>
       {/* Historia de la empresa */}
@@ -65,13 +68,23 @@ const About: React.FC = () => {
           }}
         >
           {/* Imagen redonda */}
-          {<UniversalImage src="/images/ciudad-bogota.jpg" alt="Fundador de la empresa" sx={{
-            width: 250,
-            height: 250,
-            borderRadius: '50%',
-            objectFit: 'cover',
-            flexShrink: 0,
-          }} />}
+          <UniversalImage
+            src="/images/ciudad-bogota.jpg"
+            alt="Fundador de la empresa"
+            containerSx={{
+              boxShadow: "none",
+              p: "2rem 1rem" 
+            }}
+            imgSx={{
+              width: { xs: 180, sm: 200, md: 250 },
+              height: { xs: 180, sm: 200, md: 250 },
+              borderRadius: "50%",
+              objectFit: "cover",
+              flexShrink: 0,
+              mx: "auto",
+              
+            }}
+          />
 
           {/* Descripción al lado */}
           <Box sx={{ flex: 1, textAlign: 'left' }}>
@@ -88,122 +101,11 @@ const About: React.FC = () => {
       </UniversalCard>
 
       {/* Propuesta de valor */}
-      <Box mb={2}>
-        <SectionSubtitle>🌟 ¿Por qué elegirnos?</SectionSubtitle>
-        <Box sx={{
-          display: 'flex',
-          flexDirection: ['column', 'row'],
-          gap: 3,
-          margin: 2,
-        }}>
-          <UniversalCard>
-            <Box
-              sx={{
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                "& svg": {
-                  fontSize: 40,
-                  color: "var(--color-black)",
-                  mb: 1,
-                  transition: "all 0.3s ease-in-out",
-                },
-                "&:hover svg": {
-                  color: "var(--color-light-blue)",
-                  transform: "scale(1.1)",
-                },
-              }}
-            >
-              <Build />
-              <CardDescription>
-                Soluciones personalizadas para cada cliente
-              </CardDescription>
-            </Box>
-          </UniversalCard>
-
-          <UniversalCard>
-            <Box
-              sx={{
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                "& svg": {
-                  fontSize: 40,
-                  color: "var(--color-black)",
-                  mb: 1,
-                  transition: "all 0.3s ease-in-out",
-                },
-                "&:hover svg": {
-                  color: "var(--color-light-blue)",
-                  transform: "scale(1.1)",
-                },
-              }}
-            >
-              <Lightbulb />
-              <CardDescription >
-                Enfoque en la innovación y eficiencia
-              </CardDescription>
-            </Box>
-          </UniversalCard>
-
-          <UniversalCard>
-            <Box
-              sx={{
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                "& svg": {
-                  fontSize: 40,
-                  color: "var(--color-black)",
-                  mb: 1,
-                  transition: "all 0.3s ease-in-out",
-                },
-                "&:hover svg": {
-                  color: "var(--color-light-blue)",
-                  transform: "scale(1.1)",
-                },
-              }}
-            >
-              <SupportAgent />
-              <CardDescription >
-                Soporte experto y acompañamiento constante
-              </CardDescription>
-            </Box>
-          </UniversalCard>
-
-          <UniversalCard>
-            <Box
-              sx={{
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                "& svg": {
-                  fontSize: 40,
-                  color: "var(--color-black)",
-                  mb: 1,
-                  transition: "all 0.3s ease-in-out",
-                },
-                "&:hover svg": {
-                  color: "var(--color-light-blue)",
-                  transform: "scale(1.1)",
-                },
-              }}
-            >
-              <Shield />
-              <CardDescription>
-                Compromiso con la seguridad y la ética digital
-              </CardDescription>
-            </Box>
-          </UniversalCard>
-        </Box>
+      <Box m={2}>
+        <ValueProposition />
       </Box>
 
     </UniversalContainer >
-
   );
 };
 

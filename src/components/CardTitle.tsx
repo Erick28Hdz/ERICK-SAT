@@ -10,8 +10,9 @@ interface CardTitleProps {
 const StyledTitle = styled(Typography)(({ theme }) => ({
   fontFamily: "var(--font-tech)",
   fontWeight: 600,
-  fontSize: "1.3rem",
+  fontSize: "clamp(1.1rem, 1vw + 0.4rem, 1.5rem)",
   color: "var(--color-black)",
+  letterSpacing: 2,
   marginTop: theme.spacing(2),
   marginBottom: theme.spacing(1),
   transition: "color 0.3s ease, text-shadow 0.3s ease",

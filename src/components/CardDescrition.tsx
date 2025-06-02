@@ -12,7 +12,7 @@ const StyledDescription = styled(({ fontSize, ...rest }: CardDescriptionProps) =
   <Typography {...rest} />
 ))(({ theme, fontSize }: { theme: any; fontSize?: string }) => ({
   fontFamily: "var(--font-sans)",
-  fontSize: fontSize || "1.0rem",
+  fontSize: `clamp(0.85rem, 1vw + 0.4rem, ${fontSize || "1.1rem"})`,
   color: "var(--color-beige)",
   marginBottom: theme.spacing(2),
   textAlign: "inherit",
@@ -20,7 +20,7 @@ const StyledDescription = styled(({ fontSize, ...rest }: CardDescriptionProps) =
   transition: "color 0.3s ease, text-shadow 0.3s ease",
   ".MuiPaper-root:hover &": {
     color: "var(--color-light)",
-    textShadow: "0 0 6px rgba(0,255,255,0.4)",
+    textShadow: "0 0 2px rgba(0,255,255,0.4)",
   },
 }));
 

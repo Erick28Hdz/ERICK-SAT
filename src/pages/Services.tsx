@@ -5,12 +5,16 @@ import {
   Typography,
 } from "@mui/material";
 import { servicios } from "../data/Servicios";
+import { parsePrice, formatPrice } from "../utils/formatPrice";
 import UniversalContainer from "../components/UniversalContainer";
 import SectionTitle from "../components/SectionTitle";
 import IntroSection from "../components/IntroSection";
 import ServiceCard from "../components/ServiceCard";
 import CategoryTabs from "../components/Tabs";
 import UniversalImage from "../components/UniversalImg";
+import CustomSelect from "../components/CustomSelect";
+import { useExchangeRates } from "../hooks/useExchangeRates";
+import { useScrollTop } from "../hooks/useScrollTop";
 
 // Define la interfaz del servicio
 interface Servicio {
@@ -42,6 +46,7 @@ interface TabPanelProps {
 }
 
 function TabPanel({ children, value, index, className }: TabPanelProps) {
+  useScrollTop();
   return (
     <div
       role="tabpanel"
@@ -59,6 +64,37 @@ function TabPanel({ children, value, index, className }: TabPanelProps) {
 const Services: React.FC = () => {
   const [tabValue, setTabValue] = useState<number>(0);
 
+  // 🟡 Nuevo: Estado de moneda y locale
+  const [moneda, setMoneda] = useState("COP");
+  const [locale, setLocale] = useState("es-CO");
+  const { rates, loading } = useExchangeRates();
+
+  // Opciones disponibles para el selector
+  const opcionesMoneda = [
+    { label: "Colombia (COP)", value: "COP", locale: "es-CO" },
+    { label: "USA (USD)", value: "USD", locale: "en-US" },
+    { label: "Europa (EUR)", value: "EUR", locale: "es-ES" },
+    { label: "Japón (JPY)", value: "JPY", locale: "ja-JP" },
+  ];
+
+  if (loading) return <p style={{ color: "white" }}>Cargando tasas de cambio...</p>;
+  
+  // 🟢 Formatea los precios según moneda/locale actual
+  const serviciosFormateados = servicios.map((servicio) => {
+    const precioMinCOP = parsePrice(servicio.precioMin);
+    const precioMaxCOP = parsePrice(servicio.precioMax);
+    const tasaCambio = moneda === "COP" ? 1 : (rates[moneda] / rates["COP"]) || 1;
+    
+    const precioMinConvertido = precioMinCOP * tasaCambio;
+    const precioMaxConvertido = precioMaxCOP * tasaCambio;
+
+    return {
+      ...servicio,
+      precioMin: formatPrice(precioMinConvertido, locale, moneda),
+      precioMax: formatPrice(precioMaxConvertido, locale, moneda),
+    };
+  });
+
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
@@ -68,24 +104,25 @@ const Services: React.FC = () => {
       <SectionTitle>Nuestros Servicios</SectionTitle>
       <IntroSection
         description={
-          <Typography
-            variant="body1"
-            className="description"
-          >Potencia tu negocio con nuestros servicios de <strong>ciberseguridad</strong>, <strong>desarrollo web personalizado</strong> y <strong>formación técnica de alto nivel</strong>.
+          <Typography variant="body1" className="description">
+            Potencia tu negocio con nuestros servicios de <strong>ciberseguridad</strong>, <strong>desarrollo web personalizado</strong> y <strong>formación técnica de alto nivel</strong>.
             <br /><br />
             Creamos soluciones a tu medida, con tecnología de punta, atención cercana y precios competitivos.
             <br />
             <span style={{ color: "var(--color-light)", fontWeight: "500" }}>
               ¡Haz que tu proyecto destaque y evolucione con nosotros desde hoy!
-            </span></Typography>
+            </span>
+          </Typography>
         }
         imageComponent={<UniversalImage src="/images/servicios.jpg" alt="Nuestros servicios" />}
       />
+
       <CategoryTabs
         value={tabValue}
         onChange={handleChange}
         categorias={categorias}
       />
+
       {categorias.map((cat, i) => (
         <TabPanel key={cat} value={tabValue} index={i} className="tab-panel">
           <Grid container spacing={4} justifyContent="center">
@@ -94,7 +131,7 @@ const Services: React.FC = () => {
                 No hay servicios disponibles en esta categoría.
               </Typography>
             ) : (
-              servicios
+              serviciosFormateados
                 .filter((s) => s.categoria === cat)
                 .map((s: Servicio, idx: number) => (
                   <Grid item xs={12} md={6} lg={4} key={idx} {...({} as any)}>
@@ -114,6 +151,24 @@ const Services: React.FC = () => {
           </Grid>
         </TabPanel>
       ))}
+      {/* 🟣 Selector de moneda */}
+      <Box sx={{ minWidth: 220 }}>
+        <label style={{ color: "var(--color-beige)", fontWeight: 500, marginBottom: 8, display: "block" }}>
+          Mostrar precios en:
+        </label>
+        <CustomSelect
+          label="Moneda"
+          value={moneda}
+          onChange={(e) => {
+            const selected = opcionesMoneda.find((opt) => opt.value === e.target.value);
+            if (selected) {
+              setMoneda(selected.value);
+              setLocale(selected.locale);
+            }
+          }}
+          options={opcionesMoneda.map((opt) => opt.value)}
+        />
+      </Box>
     </UniversalContainer>
   );
 };

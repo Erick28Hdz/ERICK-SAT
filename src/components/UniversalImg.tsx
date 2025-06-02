@@ -1,14 +1,21 @@
+// components/UniversalImage.tsx
 import { Box } from "@mui/material";
-import type { SxProps } from "@mui/material";
+import type { SxProps, Theme } from "@mui/material"; 
 import { useState } from "react";
 
 type Props = {
   src: string;
   alt?: string;
-  sx?: SxProps;
+  containerSx?: SxProps<Theme>; 
+  imgSx?: SxProps<Theme>;
 };
 
-export default function UniversalImage({ src, alt = "", sx }: Props) {
+export default function UniversalImage({
+  src,
+  alt = "",
+  containerSx,
+  imgSx,
+}: Props) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -25,7 +32,7 @@ export default function UniversalImage({ src, alt = "", sx }: Props) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        ...sx, // permite override externo
+        ...containerSx, // ✅ estilos externos del contenedor
       }}
     >
       <Box
@@ -42,6 +49,7 @@ export default function UniversalImage({ src, alt = "", sx }: Props) {
             : "0 12px 30px rgba(0, 0, 0, 0.25)",
           transition: "transform 0.4s ease, box-shadow 0.4s ease",
           transform: hovered ? "scale(1.03)" : "scale(1)",
+          ...imgSx, // ✅ estilos específicos de la imagen
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

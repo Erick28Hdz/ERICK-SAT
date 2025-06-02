@@ -98,6 +98,13 @@ const StyledWrapper = styled.div<{ variant: string }>`
     opacity: 0.4;
     pointer-events: none;
   }
-`;
 
+  /* Media query para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .animated-button {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  }
+`;
 export default Button;

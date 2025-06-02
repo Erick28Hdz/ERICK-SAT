@@ -16,8 +16,10 @@ import UniversalImage from "../components/UniversalImg";
 import { Link } from "react-router-dom";
 import CardTitle from "../components/CardTitle";
 import CardDescription from "../components/CardDescrition";
+import { useScrollTop } from "../hooks/useScrollTop";
 
-const Blog = () => {
+const Blog: React.FC = () =>{
+  useScrollTop();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todas");
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,7 +40,7 @@ const Blog = () => {
   const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
 
   const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-
+  
   return (
     <UniversalContainer pt={6} pb={3}>
       <SectionTitle>Nuestro Blog</SectionTitle>
@@ -65,7 +67,7 @@ const Blog = () => {
           justifyContent: "space-evenly",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 15,
+          gap: 10,
           px: 1,
           margin: "1rem",
         }}

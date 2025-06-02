@@ -13,6 +13,7 @@ const cardStyles = {
     maxWidth: 390,
     borderRadius: '20px 0',
     borderLeft: '2px solid var(--color-beige)',
+    borderRight: "2px solid transparent",
     background: 'rgba(255, 255, 255, 0.05)',
     backdropFilter: 'blur(10px)',
     transition: 'all 0.3s ease',

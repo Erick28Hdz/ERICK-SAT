@@ -1,6 +1,6 @@
 // components/UniversalCard.tsx
 import React from "react";
-import { Card, CardContent, type CardProps } from "@mui/material";
+import { Card, CardContent, type CardProps, useMediaQuery, useTheme } from "@mui/material";
 
 interface UniversalCardProps extends CardProps {
   children: React.ReactNode;
@@ -13,6 +13,9 @@ const UniversalCard: React.FC<UniversalCardProps> = ({
   contentFlexDirection = "column",
   ...rest
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // true si ancho < 600px
+
   return (
     <Card
       variant="outlined"
@@ -23,9 +26,10 @@ const UniversalCard: React.FC<UniversalCardProps> = ({
         justifyContent: "space-between",
         height: "100%",
         width: "100%",
-        maxWidth: 380,
+        maxWidth: "clamp(280px, 85vw, 380px)",
         borderRadius: "20px 0",
         borderLeft: "2px solid var(--color-beige)",
+        borderRight: "2px solid transparent",
         background: "rgba(255, 255, 255, 0.05)",
         backdropFilter: "blur(10px)",
         transition: "all 0.3s ease",
@@ -43,10 +47,11 @@ const UniversalCard: React.FC<UniversalCardProps> = ({
       <CardContent
         sx={{
           display: "flex",
-          flexDirection: contentFlexDirection,
+          flexDirection: isMobile ? "column" : contentFlexDirection,
           flexGrow: 1,
           height: "100%",
-          padding: 2,
+          padding: isMobile ? 1.5 : 2,
+          gap: isMobile ? 1.5 : 2,
         }}
       >
         {children}

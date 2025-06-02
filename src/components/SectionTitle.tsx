@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { toUpperCase } from "../utils/capitalize";
 
 interface SectionTitleProps {
   children: React.ReactNode;
@@ -12,9 +13,10 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   align = "center",
   fontSize = "2.8rem",
 }) => {
+  const text = typeof children === "string" ? toUpperCase(children) : children;
   return (
     <StyledTitle $align={align} $fontSize={fontSize}>
-      <h2 className="title">{children}</h2>
+      <h2 className="title">{text}</h2>
     </StyledTitle>
   );
 };
@@ -28,7 +30,12 @@ const StyledTitle = styled.div<{
   .title {
     color: var(--color-light-blue);
     text-shadow: 0 0 5px var(--color-light-blue);
-    font-size: ${(props) => props.$fontSize};
+    font-size: ${(props) => {
+    const baseSize = parseFloat(props.$fontSize);
+    return baseSize <= 1.2
+      ? props.$fontSize
+      : `clamp(1.6rem, 2vw + 1rem, ${props.$fontSize})`;
+  }};
     letter-spacing: 2px;
     font-weight: 700;
     font-family: var(--font-tech);
@@ -36,6 +43,7 @@ const StyledTitle = styled.div<{
     position: relative;
     z-index: 1;
     animation: pulseText 2.5s ease-in-out infinite;
+    transition: font-size 0.3s ease;
   }
 
   @keyframes pulseText {

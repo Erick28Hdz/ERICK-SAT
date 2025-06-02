@@ -1,5 +1,6 @@
 import React, { type JSX } from "react";
 import styled from "styled-components";
+import { toUpperCase } from "../utils/capitalize";
 
 interface SectionSubtitleProps {
   children: React.ReactNode;
@@ -14,10 +15,11 @@ const SectionSubtitle: React.FC<SectionSubtitleProps> = ({
   align = "center",
   fontSize = "2.7rem",
 }) => {
+  const text = typeof children === "string" ? toUpperCase(children) : children;
   return (
     <StyledSubtitle $align={align}>
       <StyledText as={as} $fontSize={fontSize}>
-        {children}
+        {text}
       </StyledText>
     </StyledSubtitle>
   );
@@ -34,7 +36,7 @@ const StyledSubtitle = styled.div<{ $align: "left" | "center" | "right" }>`
 
 const StyledText = styled.h3<{ $fontSize?: string }>`
   color: var(--color-beige);
-  font-size: ${({ $fontSize }) => $fontSize || "2.7rem"};
+  font-size: ${({ $fontSize }) => `clamp(1.6rem, 2vw + 1rem, ${$fontSize || "2.7rem"})`};
   font-weight: 500;
   font-family: var(--font-tech);
   text-shadow: 0 0 4px rgba(0, 255, 255, 0.4);

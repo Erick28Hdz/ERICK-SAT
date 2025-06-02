@@ -31,13 +31,13 @@ realiza un escaneo SYN para identificar puertos abiertos en la IP especificada.
 Nmap es fundamental para tareas de pentesting, reconocimiento y monitoreo de redes empresariales.
     `,
     category: "ciberseguridad",
-    image: "/images/nmap.jpg",
+    image: "/images/default.jpg",
     fecha: "2025-07-15",
   },
 
   {
     title: "Cómo proteger tu red doméstica",
-    slug: "que-es-nmap",
+    slug: "proteger-red-domestica",
     desc: "Guía paso a paso para configurar tu router, cambiar contraseñas por defecto, activar firewalls y asegurar tus dispositivos IoT.",
     content: `
 Proteger tu red doméstica es esencial para evitar accesos no autorizados y garantizar tu privacidad.
@@ -53,7 +53,7 @@ Pasos clave:
 Además, evita usar contraseñas débiles. Usa una combinación de mayúsculas, números y caracteres especiales.
     `,
     category: "ciberseguridad",
-    image: "/images/red-domestica.jpg",
+    image: "/images/default.jpg",
     fecha: "2025-06-28",
   },
 

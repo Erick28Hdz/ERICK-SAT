@@ -12,6 +12,7 @@ import CategoryTabs from "../components/Tabs";
 import PortfolioCard from "../components/PortafolioCard";
 import CustomSelect from "../components/CustomSelect";
 import UniversalImage from "../components/UniversalImg";
+import { useScrollTop } from "../hooks/useScrollTop";
 
 const categorias: string[] = [
   "Todos",
@@ -23,6 +24,7 @@ const categorias: string[] = [
 ];
 
 const Portfolio: React.FC = () => {
+  useScrollTop();
   const [tabValue, setTabValue] = useState<number>(0);
   const [subcategoria, setSubcategoria] = useState<string>("Todas");
 

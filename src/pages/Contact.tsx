@@ -18,7 +18,7 @@ import UniversalCard from "../components/UniversalCard";
 import CardTitle from "../components/CardTitle";
 import CardDescription from "../components/CardDescrition";
 import SectionSubtitle from "../components/SectionSubtitle";
-
+import { useScrollTop } from "../hooks/useScrollTop";
 
 const schema = yup.object().shape({
   name: yup.string().required("El nombre es obligatorio"),
@@ -29,7 +29,8 @@ const schema = yup.object().shape({
   message: yup.string().required("El mensaje es obligatorio"),
 });
 
-const Contact = () => {
+const Contact: React.FC = () => {
+  useScrollTop();
   const {
     register,
     handleSubmit,
@@ -78,32 +79,53 @@ const Contact = () => {
         imageComponent={<UniversalImage src="/images/contacto.jpg" alt="Nuestros servicios" />}
       />
 
-      <Grid container spacing={4} justifyContent="center" gap="10rem">
-        {/* Columna izquierda con el texto */}
-        <Grid item xs={12} md={4} sx={{ width: "40%" }} {...({} as any)}>
-          <SectionSubtitle>📞 ¿Dónde puedes encontrarnos?</SectionSubtitle>
-          <CardDescription >
-            <p>
-              ¿Tienes una idea brillante o buscas una solución tecnológica a medida? Estamos aquí para escucharte. Nuestro equipo se especializa en transformar ideas en experiencias digitales impactantes, modernas y centradas en el usuario.
-            </p>
-            <p>
-              <strong>Contáctanos hoy y démosle vida a tu proyecto. La innovación comienza con una conversación. 🚀</strong>
-            </p>
-          </CardDescription>
-          {/* Redes Sociales en fila */}
-          <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem", mt: 2, flexWrap: "wrap" }}>
-            <SocialLinks hide={[]} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          gap: 4,
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          px: { xs: 2, md: 7 },
+        }}
+      >
+        {/* Sección izquierda */}
+        <Box sx={{ maxWidth: 600, width: "100%" }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            <Box sx={{ textAlign: "center", width: "100%" }}>
+              <SectionSubtitle>📞 ¿Dónde puedes encontrarnos?</SectionSubtitle>
+            </Box>
+            <Box sx={{ width: "100%" }}>
+              <CardDescription>
+                <p>
+                  ¿Tienes una idea brillante o buscas una solución tecnológica a medida? Estamos aquí para escucharte.
+                </p>
+                <p>
+                  <strong>Contáctanos y démosle vida a tu proyecto. 🚀</strong>
+                </p>
+              </CardDescription>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "1rem",
+                mt: 2,
+                flexWrap: "wrap",
+              }}
+            >
+              <SocialLinks hide={[]} />
+            </Box>
           </Box>
-        </Grid>
+        </Box>
 
-        {/* Columna derecha con formulario + redes sociales */}
-        <Grid item xs={12} md={6}  {...({} as any)}>
+        {/* Sección derecha */}
+        <Box sx={{ maxWidth: 600, width: "100%", display: "flex", justifyContent: "center" }}>
           <UniversalCard>
-            {/* Formulario */}
-              <ContactForm />
+            <ContactForm />
           </UniversalCard>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </UniversalContainer>
   );
 };

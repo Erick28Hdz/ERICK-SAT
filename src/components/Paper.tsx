@@ -14,6 +14,7 @@ const BasePaper = ({ children, sx = {} }: BasePaperProps) => (
       p: 3,
       borderRadius: "20px 0",
       borderLeft: "2px solid var(--color-beige)",
+      borderRight: "2px solid transparent",
       bgcolor: "rgba(255, 255, 255, 0.05)",
       backdropFilter: "blur(10px)",
       color: "var(--color-beige)",

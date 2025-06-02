@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Box,
-  CardContent,
-  Typography,
   Table,
   TableBody,
   TableCell,
@@ -13,7 +11,7 @@ import {
 import CardTitle from "./CardTitle";
 import CardDescription from "./CardDescrition";
 import UniversalCard from "./UniversalCard";
-import { justifyContent } from "@mui/system";
+
 
 type ServiceCardProps = {
   title: React.ReactNode;

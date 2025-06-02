@@ -11,8 +11,10 @@ const ultimosArticulos = articles
 
 const NuevosArticulos: React.FC = () => {
   return (
-    <Box sx={{ px: 3, py: 5 }}>
-      <SectionSubtitle>📚 Últimos Artículos</SectionSubtitle>
+    <Box sx={{ px: 3, py: 4 }}>
+      <Box sx={{ textAlign: "center" }}>
+        <SectionSubtitle>📚 Últimos Artículos</SectionSubtitle>
+      </Box>
 
       <Grid container spacing={4} justifyContent="center" mt={2}>
         {ultimosArticulos.length > 0 ? (

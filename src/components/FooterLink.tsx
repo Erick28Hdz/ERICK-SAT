@@ -3,6 +3,7 @@ import UniversalCard from "./UniversalCard";
 import { styled } from "@mui/system";
 import UniversalModal from "./UniversalModal";
 import { legalTexts } from "../data/LegalContent";
+import { toUpperCase } from "../utils/capitalize";
 
 const LinkStyled = styled("button")({
   background: "none",
@@ -10,7 +11,7 @@ const LinkStyled = styled("button")({
   color: "var(--color-light)",
   fontFamily: "var(--font-ui)",
   cursor: "pointer",
-  fontSize: "1rem",
+  fontSize: "0.8rem",
   position: "relative",
   "&::after": {
     content: '""',
@@ -39,11 +40,10 @@ const FooterLinks: React.FC = () => {
   const [modalContent, setModalContent] = useState("");
 
   const handleOpen = (title: keyof typeof legalTexts) => {
-    setModalTitle(title);
+    setModalTitle(toUpperCase(title)); // si también quieres el título del modal en mayúscula
     setModalContent(legalTexts[title]);
     setModalOpen(true);
   };
-
   return (
     <>
       <UniversalCard
@@ -57,6 +57,7 @@ const FooterLinks: React.FC = () => {
           borderRadius: "20px 0px",
           m: 1,
           borderTop: "2px solid var(--color-beige)",
+          borderBottom: "2px solid transparent",
           borderLeft: "none",
           '&:hover': {
             borderTop: "2px solid var(--color-light-blue)",
@@ -65,8 +66,11 @@ const FooterLinks: React.FC = () => {
         }}
       >
         {Object.keys(legalTexts).map((title) => (
-          <LinkStyled key={title} onClick={() => handleOpen(title as keyof typeof legalTexts)}>
-            {title}
+          <LinkStyled
+            key={title}
+            onClick={() => handleOpen(title as keyof typeof legalTexts)}
+          >
+            {toUpperCase(title)}
           </LinkStyled>
         ))}
       </UniversalCard>

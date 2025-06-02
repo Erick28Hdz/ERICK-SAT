@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, Grid, useTheme } from "@mui/material";
 import Hero from "../components/Hero";
 import UniversalContainer from "../components/UniversalContainer";
-import SectionTitle from "../components/SectionTitle";
 import SectionSubtitle from "../components/SectionSubtitle";
 import UniversalCard from "../components/UniversalCard";
 import { promos } from "../data/Promo";
@@ -13,9 +12,11 @@ import InfiniteSlider from "../components/InfinitySlider";
 import NuevosProyectos from "../components/NuevosProyectos";
 import NuevosArticulos from "../components/nuevoArticulo";
 import AdNoticeSection from "../components/AdNoticeSection";
+import { useScrollTop } from "../hooks/useScrollTop";
 
 
 const Inicio: React.FC = () => {
+  useScrollTop();
   const theme = useTheme();
 
   return (
@@ -25,7 +26,7 @@ const Inicio: React.FC = () => {
 
       <InfiniteSlider />
       {/* Avisos Promocionales */}
-      
+
       <NuevosProyectos />
       <NuevosArticulos />
       <AdNoticeSection
@@ -36,8 +37,10 @@ const Inicio: React.FC = () => {
         ]}
       />
 
-      <Box sx={{ px: 3, py: 3, pb: 5, width: "100%" }}>
-        <SectionSubtitle >🌐 Novedades Tecnológicas</SectionSubtitle>
+      <Box sx={{ px: 3, py: 3, mt: 3, width: "100%" }}>
+        <Box sx={{ textAlign: "center" }}>
+          <SectionSubtitle >🌐 Novedades en servicios</SectionSubtitle>
+        </Box>
         <Grid container spacing={3} sx={{ px: 3, py: 4, width: 'fit-content', margin: '0 auto', }}>
           {promos.map(({ title, description }, index) => (
             <Grid item xs={12} md={6} key={index} {...({} as any)}>
@@ -55,8 +58,10 @@ const Inicio: React.FC = () => {
       </Box>
 
       {/* Sección de características */}
-      <Box sx={{ px: 3, py: 3, pb: 5, width: "100%" }}>
-        <SectionSubtitle>🔧 Soluciones Tecnológicas</SectionSubtitle>
+      <Box sx={{ px: 3, py: 1, pb: 4, width: "100%" }}>
+        <Box sx={{ textAlign: "center" }}>
+          <SectionSubtitle>🔧 Soluciones Tecnológicas</SectionSubtitle>
+        </Box>
         <Grid container spacing={4} sx={{ px: 3, py: 4, width: 'fit-content', margin: '0 auto' }}>
           {soluciones.map(({ title, description, icon: Icon }, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} {...({} as any)}>

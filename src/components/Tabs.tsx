@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab } from "@mui/material";
+import { Tabs, Tab, useMediaQuery, useTheme } from "@mui/material";
 
 interface CategoryTabsProps {
   value: number;
@@ -8,20 +8,27 @@ interface CategoryTabsProps {
 }
 
 const CategoryTabs: React.FC<CategoryTabsProps> = ({ value, onChange, categorias }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Tabs
       value={value}
       onChange={onChange}
-      variant="scrollable"
-      scrollButtons="auto"
+      variant={isSmallScreen ? "standard" : "scrollable"}
+      orientation={isSmallScreen ? "vertical" : "horizontal"}
+      scrollButtons={isSmallScreen ? false : "auto"}
       aria-label="categorías"
       sx={{
         mb: 4,
+        display: isSmallScreen ? "flex" : "block",
+        flexDirection: isSmallScreen ? "column" : "row",
         '& .MuiTab-root': {
-          fontFamily: 'var(--font-sams)',
+          fontFamily: 'var(--font-sans)',
           color: 'var(--color-beige)',
           margin: '0 auto',
-          
+          borderBottom: isSmallScreen ? 'none' : '2px solid transparent',
+          borderLeft: isSmallScreen ? '2px solid transparent' : 'none',
+          textAlign: 'left',
         },
         '& .Mui-selected': {
           color: 'var(--color-light-blue) !important',
@@ -29,11 +36,11 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({ value, onChange, categorias
           fontFamily: 'var(--font-sans)',
           bgcolor: 'var(--color-black)',
           borderRadius: 2,
+          borderBottom: isSmallScreen ? 'none' : '2px solid var(--color-light-blue)',
+          borderLeft: isSmallScreen ? '4px solid var(--color-light-blue)' : 'none',
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: 'var(--color-light-blue)',
-          height: '3px',
-          borderRadius: '2px',
+          display: 'none',
         },
       }}
     >

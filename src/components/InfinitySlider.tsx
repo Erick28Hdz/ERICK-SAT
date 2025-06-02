@@ -72,6 +72,7 @@ const SliderTrack = styled.div`
 
 const Logo = styled.div`
   flex: 0 0 auto;
+
   img {
     height: 50px;
     transition: transform 0.3s;
@@ -81,5 +82,11 @@ const Logo = styled.div`
   &:hover img {
     transform: scale(1.1);
     filter: grayscale(0);
+  }
+
+  @media (max-width: 600px) {
+    img {
+      height: 30px;
+    }
   }
 `;

@@ -24,7 +24,7 @@ const CustomSelect = ({
   <FormControl
     variant="outlined"
     sx={{
-      minWidth: fullWidth ? "100%" : 220,
+      minWidth: fullWidth ? "70%" : "clamp(200px, 40vw, 300px)",
       bgcolor: "transparent",
       borderRadius: 2,
       border: "1px solid var(--color-black)",
@@ -36,6 +36,7 @@ const CustomSelect = ({
     <InputLabel
       sx={{
         fontFamily: "var(--font-sans)",
+        fontSize: "clamp(0.9rem, 0.9vw + 0.4rem, 1.1rem)",
         color: "var(--color-light)",
         "&.Mui-focused": {
           color: "var(--color-light-blue)",
@@ -52,8 +53,9 @@ const CustomSelect = ({
         fontFamily: "var(--font-sans)",
         fontWeight: 500,
         color: "var(--color-light)",
+        fontSize: "clamp(0.95rem, 1vw + 0.3rem, 1.2rem)",
         "& .MuiSelect-select": {
-          padding: "12px",
+          padding: "clamp(8px, 1.5vh, 12px)",
         },
         "& .MuiOutlinedInput-notchedOutline": {
           borderColor: "var(--color-black)",
@@ -79,11 +81,11 @@ const CustomSelect = ({
         },
         anchorOrigin: {
           vertical: "bottom",
-          horizontal: "right",
+          horizontal: "left",
         },
         transformOrigin: {
           vertical: "top",
-          horizontal: "right",
+          horizontal: "left",
         },
       }}
     >
@@ -94,7 +96,7 @@ const CustomSelect = ({
           sx={{
             fontFamily: "var(--font-sans)",
             fontWeight: opt === value ? 600 : 400,
-            fontSize: "0.95rem",
+            fontSize: "clamp(0.85rem, 1vw + 0.3rem, 1.05rem)",
             "&:hover": {
               backgroundColor: "var(--color-light)",
               color: "var(--color-black)",

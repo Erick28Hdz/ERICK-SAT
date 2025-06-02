@@ -11,7 +11,9 @@ const UniversalContainer: React.FC<BoxProps> = ({ children, sx, ...rest }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center", 
         width: "100%",
+        minHeight: "80vh",
         ...sx, 
       }}
       {...rest}

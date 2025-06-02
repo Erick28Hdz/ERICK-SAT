@@ -22,11 +22,11 @@ const IntroSection: React.FC<IntroSectionProps> = ({ description, imageComponent
 };
 
 const Wrapper = styled.section`
-  padding: 2rem 2rem;
-  margin: 2rem 3rem;
+  padding: 0.5rem 0.5rem 1.0rem 1.5rem;
+  margin: 2rem 1rem;
   translúcido */
-  backdrop-filter: blur(12px);           /* desenfoque de fondo */
-  -webkit-backdrop-filter: blur(12px);   /* soporte Safari */
+  backdrop-filter: blur(12px);  
+  -webkit-backdrop-filter: blur(12px);  
   border-radius: 20px 0px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   color: var(--color-beige);
@@ -47,7 +47,7 @@ const Wrapper = styled.section`
     flex: 1;
     max-width: 600px;
     font-family: var(--font-sans);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.3rem);
     line-height: 1.5;
     letter-spacing: 0.5px;
     animation: fadeInLeft 1s ease;

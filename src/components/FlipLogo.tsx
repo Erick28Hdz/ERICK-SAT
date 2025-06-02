@@ -18,7 +18,7 @@ const FlipTitleLogo: React.FC = () => {
     <FlipContainer flipped={flipped}>
       <InnerFlip flipped={flipped}>  {/* PASAR flipped AQUÍ */}
         <FlipCardFront>
-          <SectionTitle fontSize="1.4rem">ERICK SAT</SectionTitle>
+          <SectionTitle fontSize="1.2rem">ERICK SAT</SectionTitle>
         </FlipCardFront>
         <FlipCardBack>
           <img src={logo} alt="Logo Empresa" />

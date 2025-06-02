@@ -17,17 +17,25 @@ const UniversalModal: React.FC<UniversalModalProps> = ({ open, onClose, title, c
         <Modal open={open} onClose={onClose}>
             <Box
                 sx={{
-                    maxWidth: 600,
-                    maxHeight: "90vh",
-                    overflowY: "auto",
-                    mx: "auto",
+                    width: {
+                        xs: '90%',   // móviles
+                        sm: '80%',   // tablets pequeñas
+                        md: 600,     // desktop (como antes)
+                    },
+                    maxHeight: '90vh',
+                    overflowY: 'auto',
+                    mx: 'auto',
                     my: 4,
-                    p: 4,
-                    backgroundColor: "var(--color-black)",
+                    p: {
+                        xs: 2,
+                        sm: 3,
+                        md: 4,
+                    },
+                    backgroundColor: 'var(--color-black)',
                     borderRadius: 3,
                     boxShadow: 24,
-                    color: "var(--color-light)",
-                    position: "relative",
+                    color: 'var(--color-light)',
+                    position: 'relative',
 
                     '&::-webkit-scrollbar': {
                         width: '8px',

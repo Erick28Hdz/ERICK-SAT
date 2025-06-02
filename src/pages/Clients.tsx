@@ -11,13 +11,15 @@ import { testimonios, casosDeExito } from "../data/Clientes";
 import UniversalImage from "../components/UniversalImg";
 import CardTitle from "../components/CardTitle";
 import CardDescription from "../components/CardDescrition";
+import { useScrollTop } from "../hooks/useScrollTop";
 
 
-const Clients = () => {
+const Clients: React.FC = () => {
+  useScrollTop();
   return (
     <UniversalContainer pt={6} pb={3}>
       {/* Título principal */}
-      <SectionTitle>¿A quién van dirigidos nuestros servicios?</SectionTitle>
+      <SectionTitle>¿quiénes son  nuestros clientes?</SectionTitle>
 
       {/* Descripción completa */}
       <IntroSection
@@ -47,7 +49,9 @@ const Clients = () => {
         imageComponent={<UniversalImage src="/images/cliente.jpg" alt="Nuestros servicios" />}
       />
       {/* Segmentación */}
-      <SectionSubtitle >🧩 Segmentación por tipo de cliente</SectionSubtitle>
+      <Box sx={{ textAlign: "center" }}>
+        <SectionSubtitle>🧩 tipo de cliente</SectionSubtitle>
+      </Box>
 
       <Grid sx={{ mt: 4 }} container spacing={4} justifyContent="center" >
         {[
@@ -77,10 +81,10 @@ const Clients = () => {
             desc: "Presencia web, automatización, ciberseguridad, educación, asesoría técnica.",
           },
         ].map((segment, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} {...({} as any)}>
+          <Grid item xs={12} sm={6} md={4} m={2} key={index} {...({} as any)}>
             <Paper
               sx={{
-                p: 3,
+                p: 2,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -91,6 +95,7 @@ const Clients = () => {
                 margin: "0 auto",
                 borderRadius: "20px 0",
                 borderLeft: "2px solid var(--color-beige)",
+                borderRight: "2px solid transparent",
                 bgcolor: "rgba(255, 255, 255, 0.05)",
                 backdropFilter: "blur(10px)",
                 transition: "all 0.3s ease",
@@ -131,7 +136,9 @@ const Clients = () => {
 
       {/* Casos de éxito */}
       <Box sx={{ mt: 8 }}>
-        <SectionSubtitle>🛡️ Casos de Éxito</SectionSubtitle>
+        <Box sx={{ textAlign: "center" }}>
+          <SectionSubtitle>🛡️ Casos de Éxito</SectionSubtitle>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -157,7 +164,10 @@ const Clients = () => {
 
       {/* Testimonios */}
       <Box sx={{ mt: 6 }}>
-        <SectionSubtitle>💬 Testimonios</SectionSubtitle>
+        <Box sx={{ textAlign: "center" }}>
+          <SectionSubtitle>💬 Testimonios</SectionSubtitle>
+        </Box>
+
         <Box
           sx={{
             display: "flex",

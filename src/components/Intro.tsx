@@ -68,7 +68,7 @@ const FadeInUpBox = styled.div`
 
 const IntroTitle = styled.h1`
   font-family: var(--font-tech);
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 800;
   background: linear-gradient(90deg, var(--color-cyan), var(--color-light-blue));
   -webkit-background-clip: text;

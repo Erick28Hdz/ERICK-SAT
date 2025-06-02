@@ -32,11 +32,29 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
     return (
         <UniversalCard>
             {/* Imagen con estilo personalizado */}
-            <Box sx={{ px: 2, pt: 1 }}>
-                <UniversalImage src={image} alt={title} />
+            <Box
+                sx={{
+                    
+                    height: 180, // Ajusta esta altura a tu gusto (en px)
+                    overflow: "hidden",
+                    borderRadius: 2,
+                }}
+            >
+                <UniversalImage
+                    src={image}
+                    alt={title}
+                    containerSx={{
+                        height: 180,
+                        borderRadius: 2,
+                        margin: 0,
+                    }}
+                    imgSx={{
+                        objectFit: "cover",
+                    }}
+                />
             </Box>
 
-            <CardContent sx={{ flexGrow: 1, p: 3 }}>
+            <CardContent sx={{ flexGrow: 1, p: 0 }}>
                 <CardTitle>{title}</CardTitle>
                 <CardDescription>{description}</CardDescription>
                 <Chip
@@ -50,7 +68,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
                     }}
                 />
             </CardContent>
-            <CardActions sx={{ px: 3, pb: 3 }}>
+            <CardActions sx={{ px: 3, pb: 1 }}>
                 {link ? (
                     <Button
                         href={link}

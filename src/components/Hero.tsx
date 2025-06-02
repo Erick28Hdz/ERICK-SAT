@@ -1,14 +1,19 @@
 import React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import SectionTitle from "./SectionTitle";
 import styled from "styled-components";
 import UniversalImage from "./UniversalImg";
 import Button from "./Button";
 import CardDescription from "./CardDescrition";
-import { textAlign } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const Hero: React.FC = () => {
     const theme = useTheme();
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/servicios"); // Aquí se llama a la función navigate
+    };
 
     return (
         <HeroWrapper>
@@ -53,7 +58,7 @@ const Hero: React.FC = () => {
                         Somos una empresa especializada en <strong>soluciones tecnológicas a medida</strong>, enfocadas en <strong>ciberseguridad</strong>, <strong>desarrollo web</strong> y <strong>automatización de procesos</strong>. Potenciamos tu negocio con herramientas digitales modernas, eficientes y seguras.
                     </CardDescription>
 
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={handleClick}>
                         Conoce nuestros servicios
                     </Button>
                 </Box>
