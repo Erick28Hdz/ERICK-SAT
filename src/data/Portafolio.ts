@@ -69,5 +69,15 @@ export const proyectos: Proyecto[] = [
     categoria: "Desarrollo Web por Niveles",
     subcategoria: "Portafolios Web",
     fecha: "2024-06-28",
+  },
+  {
+    id: 7,
+    titulo: "Portafolio Web Profesional",
+    descripcion: "Desarrollo de portafolio personal utilizando HTML, CCS y JavaScript",
+    imagen: "/images/portafolio/Portafolio.png",
+    enlace: "https://erick28hdz.github.io/PortafolioWeb/",
+    categoria: "Desarrollo Web por Niveles",
+    subcategoria: "Portafolios Web",
+    fecha: "2024-06-28",
   }
 ];

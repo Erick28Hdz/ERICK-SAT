@@ -42,7 +42,7 @@ export default function UniversalImage({
         sx={{
           width: "100%",
           height: "100%",
-          maxWidth: 450,
+          maxWidth: 600,
           objectFit: "cover",
           boxShadow: hovered
             ? "0 8px 20px rgba(0, 0, 0, 0.2)"

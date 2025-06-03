@@ -76,13 +76,6 @@ const ArticlePage = () => {
           <UniversalImage
             src={article.image || "/default.jpg"}
             alt={article.title}
-            sx={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: 2,
-              boxShadow: 3,
-              objectFit: 'cover',
-            }}
           />
         </Box>
 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -13,6 +13,8 @@ import PortfolioCard from "../components/PortafolioCard";
 import CustomSelect from "../components/CustomSelect";
 import UniversalImage from "../components/UniversalImg";
 import { useScrollTop } from "../hooks/useScrollTop";
+import UniversalPagination from "../components/UniversalPagination";
+import { usePagination } from "../hooks/usePagination";
 
 const categorias: string[] = [
   "Todos",
@@ -58,6 +60,12 @@ const Portfolio: React.FC = () => {
     return filtrados;
   }, [categoriaActual, subcategoria]);
 
+  const { currentPage, setCurrentPage, currentItems, totalPages } = usePagination(proyectosFiltrados, 6);
+
+  useEffect(() => {
+  setCurrentPage(1);
+}, [categoriaActual, subcategoria]);
+
   return (
     <UniversalContainer pb={3} pt={6}>
       <SectionTitle>Portafolio de Productos</SectionTitle>
@@ -95,7 +103,7 @@ const Portfolio: React.FC = () => {
 
       {/* Lista de proyectos filtrados */}
       <Grid container spacing={4} justifyContent={"center"} margin={2}>
-        {proyectosFiltrados.map((proyecto) => (
+        {currentItems.map((proyecto) => (
           <Grid item xs={12} sm={6} md={4} key={proyecto.id} {...({} as any)}>
             <PortfolioCard
               title={proyecto.titulo}
@@ -116,6 +124,13 @@ const Portfolio: React.FC = () => {
           </Grid>
         )}
       </Grid>
+      {totalPages > 1 && (
+        <UniversalPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      )}
     </UniversalContainer>
   );
 };

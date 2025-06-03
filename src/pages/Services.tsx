@@ -15,6 +15,8 @@ import UniversalImage from "../components/UniversalImg";
 import CustomSelect from "../components/CustomSelect";
 import { useExchangeRates } from "../hooks/useExchangeRates";
 import { useScrollTop } from "../hooks/useScrollTop";
+import UniversalPagination from "../components/UniversalPagination";
+import { usePagination } from "../hooks/usePagination";
 
 // Define la interfaz del servicio
 interface Servicio {
@@ -28,8 +30,9 @@ interface Servicio {
   entregables: string[];
 }
 
-// Categorías
+// Categorías con la nueva "Todas"
 const categorias: string[] = [
+  "Todas",
   "Ciberseguridad",
   "Scripts personalizados",
   "Plantillas y aplicaciones web",
@@ -64,6 +67,10 @@ function TabPanel({ children, value, index, className }: TabPanelProps) {
 const Services: React.FC = () => {
   const [tabValue, setTabValue] = useState<number>(0);
 
+  // Estado para paginación
+  const [currentPage, setCurrentPage] = useState(1);
+  const servicesPerPage = 6;
+
   // 🟡 Nuevo: Estado de moneda y locale
   const [moneda, setMoneda] = useState("COP");
   const [locale, setLocale] = useState("es-CO");
@@ -78,13 +85,13 @@ const Services: React.FC = () => {
   ];
 
   if (loading) return <p style={{ color: "white" }}>Cargando tasas de cambio...</p>;
-  
+
   // 🟢 Formatea los precios según moneda/locale actual
   const serviciosFormateados = servicios.map((servicio) => {
     const precioMinCOP = parsePrice(servicio.precioMin);
     const precioMaxCOP = parsePrice(servicio.precioMax);
     const tasaCambio = moneda === "COP" ? 1 : (rates[moneda] / rates["COP"]) || 1;
-    
+
     const precioMinConvertido = precioMinCOP * tasaCambio;
     const precioMaxConvertido = precioMaxCOP * tasaCambio;
 
@@ -95,8 +102,21 @@ const Services: React.FC = () => {
     };
   });
 
+  // Filtra servicios según pestaña seleccionada
+  const serviciosFiltrados = serviciosFormateados.filter((s) =>
+    tabValue === 0 ? true : s.categoria === categorias[tabValue]
+  );
+
+  // Paginación
+  const totalPages = Math.ceil(serviciosFiltrados.length / servicesPerPage);
+  const paginatedServices = serviciosFiltrados.slice(
+    (currentPage - 1) * servicesPerPage,
+    currentPage * servicesPerPage
+  );
+
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
+    setCurrentPage(1); // Reiniciar página al cambiar categoría
   };
 
   return (
@@ -126,31 +146,39 @@ const Services: React.FC = () => {
       {categorias.map((cat, i) => (
         <TabPanel key={cat} value={tabValue} index={i} className="tab-panel">
           <Grid container spacing={4} justifyContent="center">
-            {servicios.filter((s) => s.categoria === cat).length === 0 ? (
+            {serviciosFiltrados.length === 0 ? (
               <Typography variant="body2" color="text.secondary" sx={{ ml: 2 }}>
                 No hay servicios disponibles en esta categoría.
               </Typography>
             ) : (
-              serviciosFormateados
-                .filter((s) => s.categoria === cat)
-                .map((s: Servicio, idx: number) => (
-                  <Grid item xs={12} md={6} lg={4} key={idx} {...({} as any)}>
-                    <ServiceCard
-                      title={s.nombre}
-                      description={s.descripcion}
-                      values={[
-                        { label: "Dificultad", value: s.dificultad },
-                        { label: "Tiempo estimado", value: s.tiempo },
-                        { label: "Precio", value: `${s.precioMin} – ${s.precioMax}` },
-                        { label: "Entregables", value: s.entregables.join(", ") },
-                      ]}
-                    />
-                  </Grid>
-                ))
+              paginatedServices.map((s: Servicio, idx: number) => (
+                <Grid item xs={12} md={6} lg={4} key={idx}{...({} as any)}>
+                  <ServiceCard
+                    title={s.nombre}
+                    description={s.descripcion}
+                    values={[
+                      { label: "Dificultad", value: s.dificultad },
+                      { label: "Tiempo estimado", value: s.tiempo },
+                      { label: "Precio", value: `${s.precioMin} – ${s.precioMax}` },
+                      { label: "Entregables", value: s.entregables.join(", ") },
+                    ]}
+                  />
+                </Grid>
+              ))
             )}
           </Grid>
+
+          {/* Componente de paginación */}
+          {serviciosFiltrados.length > 6 && (
+            <UniversalPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
+          )}
         </TabPanel>
       ))}
+
       {/* 🟣 Selector de moneda */}
       <Box sx={{ minWidth: 220 }}>
         <label style={{ color: "var(--color-beige)", fontWeight: 500, marginBottom: 8, display: "block" }}>

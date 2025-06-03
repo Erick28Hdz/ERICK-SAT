@@ -81,7 +81,8 @@ const Logo = styled.div`
 
   &:hover img {
     transform: scale(1.1);
-    filter: grayscale(0);
+    
+    filter: grayscale(0) drop-shadow(0px 0px 1px var(--color-light));
   }
 
   @media (max-width: 600px) {

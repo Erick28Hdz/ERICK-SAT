@@ -22,7 +22,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ description, imageComponent
 };
 
 const Wrapper = styled.section`
-  padding: 0.5rem 0.5rem 1.0rem 1.5rem;
+  padding: 0.5rem 1.0rem 1.0rem 1.0rem;
   margin: 2rem 1rem;
   translúcido */
   backdrop-filter: blur(12px);  

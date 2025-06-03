@@ -3,7 +3,6 @@ import {
   Grid,
   Typography,
   Box,
-  Pagination,
 } from "@mui/material";
 import UniversalContainer from "../components/UniversalContainer";
 import articles from "../data/Articles";
@@ -17,12 +16,13 @@ import { Link } from "react-router-dom";
 import CardTitle from "../components/CardTitle";
 import CardDescription from "../components/CardDescrition";
 import { useScrollTop } from "../hooks/useScrollTop";
+import { usePagination } from "../hooks/usePagination";
+import UniversalPagination from "../components/UniversalPagination";
 
-const Blog: React.FC = () =>{
+const Blog: React.FC = () => {
   useScrollTop();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todas");
-  const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 6;
 
   const filteredArticles = articles.filter((a) => {
@@ -35,12 +35,13 @@ const Blog: React.FC = () =>{
     return searchMatch && categoryMatch;
   });
 
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
+  const {
+    currentPage,
+    setCurrentPage,
+    currentItems: currentArticles,
+    totalPages
+  } = usePagination(filteredArticles, articlesPerPage);
 
-  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-  
   return (
     <UniversalContainer pt={6} pb={3}>
       <SectionTitle>Nuestro Blog</SectionTitle>
@@ -69,7 +70,7 @@ const Blog: React.FC = () =>{
           flexWrap: "wrap",
           gap: 10,
           px: 1,
-          margin: "1rem",
+          margin: "2rem",
         }}
       >
         <SearchInput
@@ -84,7 +85,7 @@ const Blog: React.FC = () =>{
             value={category}
             onChange={(e) => {
               setCategory(e.target.value);
-              setCurrentPage(1); // reset page on filter change
+              setCurrentPage(1); // Reiniciar la paginación al cambiar filtro
             }}
             options={["Todas", "ciberseguridad", "scripts", "formación", "casos"]}
             fullWidth
@@ -118,41 +119,11 @@ const Blog: React.FC = () =>{
       </Grid>
 
       {totalPages > 1 && (
-        <Box
-          display="flex"
-          justifyContent="center"
-          mt={4}
-          sx={{
-            '& .MuiPagination-root': {
-              fontFamily: 'var(--font-ui)',
-              borderRadius: 4,
-            },
-            '& .MuiPaginationItem-root': {
-              color: 'var(--color-light)',
-              backgroundColor: 'var(--color-light-blue)',
-              borderRadius: '8px',
-              margin: '0 4px',
-              transition: 'all 0.3s ease',
-              border: '1px solid var(--color-light-blue)',
-            },
-            '& .MuiPaginationItem-root:hover': {
-              backgroundColor: 'var(--color-light-blue)',
-              color: 'var(--color-dark-blue)',
-            },
-            '& .Mui-selected': {
-              backgroundColor: 'var(--color-light-blue) !important',
-              color: 'var(--color-black)',
-              fontWeight: 'bold',
-            },
-          }}
-        >
-          <Pagination
-            count={totalPages}
-            page={currentPage}
-            onChange={(e, value) => setCurrentPage(value)}
-            color="primary"
-          />
-        </Box>
+        <UniversalPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       )}
     </UniversalContainer>
   );
