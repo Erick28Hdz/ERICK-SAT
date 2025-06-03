@@ -34,7 +34,11 @@ const ContactForm: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
+  const [formDisabled, setFormDisabled] = useState(false);
+
   const onSubmit = async (data: FormData) => {
+    if (isSubmitting) return; // previene doble click rápido
+
     try {
       const response = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -42,13 +46,17 @@ const ContactForm: React.FC = () => {
         { ...data },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      console.log("Correo enviado:", response.status, response.text);
+
       setSnackbarMessage("¡Mensaje enviado exitosamente!");
       setSnackbarSeverity("success");
       setSnackbarOpen(true);
       reset();
+
+      // Desactivar el formulario por 60 segundos
+      setFormDisabled(true);
+      setTimeout(() => setFormDisabled(false), 60000);
+
     } catch (error) {
-      console.error("Error al enviar el mensaje:", error);
       setSnackbarMessage("Hubo un error al enviar el mensaje.");
       setSnackbarSeverity("error");
       setSnackbarOpen(true);
@@ -102,7 +110,7 @@ const ContactForm: React.FC = () => {
             }}
           />
           <Box display="flex" justifyContent="center">
-            <Button type="submit" variant="contained" disabled={isSubmitting}>
+            <Button type="submit" variant="contained" disabled={isSubmitting || formDisabled}>
               Enviar
             </Button>
           </Box>
