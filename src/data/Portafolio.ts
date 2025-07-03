@@ -19,7 +19,7 @@ export const proyectos: Proyecto[] = [
     enlace: "https://github.com/erick/proyecto-auditoria",
     categoria: "Ciberseguridad",
     subcategoria: "Auditoría de red",
-    fecha: "2025-07-18",
+    fecha: "2024-07-18",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const proyectos: Proyecto[] = [
     enlace: "",
     categoria: "Scripts personalizados",
     subcategoria: "Automatización en Linux",
-    fecha: "2025-06-15",
+    fecha: "2024-06-15",
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ export const proyectos: Proyecto[] = [
     enlace: "https://erick28hdz.github.io/PaginaRumbo/",
     categoria: "Desarrollo Web por Niveles",
     subcategoria: "Landing Page",
-    fecha: "2024-07-10",
+    fecha: "2025-05-10",
   },
   {
     id: 6,
@@ -68,16 +68,16 @@ export const proyectos: Proyecto[] = [
     enlace: "https://erick28hdz.github.io/PortafolioWeb/",
     categoria: "Desarrollo Web por Niveles",
     subcategoria: "Portafolios Web",
-    fecha: "2024-06-28",
+    fecha: "2025-02-28",
   },
   {
     id: 7,
-    titulo: "Portafolio Web Profesional",
-    descripcion: "Desarrollo de portafolio personal utilizando HTML, CCS y JavaScript",
-    imagen: "/images/portafolio/Portafolio.png",
-    enlace: "https://erick28hdz.github.io/PortafolioWeb/",
-    categoria: "Desarrollo Web por Niveles",
-    subcategoria: "Portafolios Web",
-    fecha: "2024-06-28",
+    titulo: "Generador contraseñas profesional",
+    descripcion: "Aplicación profesional para generar contraseñas y cifracrlas, guarda la contraseña en la nube directamente con google drive.",
+    imagen: "/images/portafolio/gen-pro.png",
+    enlace: "https://generador-contrasenas-pro.onrender.com/",
+    categoria: "Ciberseguridad",
+    subcategoria: "Aplicaciones",
+    fecha: "2025-06-28",
   }
 ];

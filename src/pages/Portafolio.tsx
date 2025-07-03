@@ -57,14 +57,21 @@ const Portfolio: React.FC = () => {
       filtrados = filtrados.filter(p => p.subcategoria === subcategoria);
     }
 
+    // Ordenar por fecha (más reciente primero)
+    filtrados.sort((a, b) => {
+      const fechaA = new Date(a.fecha).getTime();
+      const fechaB = new Date(b.fecha).getTime();
+      return fechaB - fechaA; // Más reciente primero
+    });
+
     return filtrados;
   }, [categoriaActual, subcategoria]);
 
   const { currentPage, setCurrentPage, currentItems, totalPages } = usePagination(proyectosFiltrados, 6);
 
   useEffect(() => {
-  setCurrentPage(1);
-}, [categoriaActual, subcategoria]);
+    setCurrentPage(1);
+  }, [categoriaActual, subcategoria]);
 
   return (
     <UniversalContainer pb={3} pt={6}>
