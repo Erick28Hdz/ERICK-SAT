@@ -33,13 +33,13 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 3,
-    titulo: "Plantilla Web Responsiva",
-    descripcion: "Sitio web adaptable con diseño moderno para negocios locales.",
+    titulo: "Landing Page Inmobiliaria Elegancia Habitat",
+    descripcion: "Landing page desarrollada con JavaScript, CSS y html, con un diseño medio y responsive",
     imagen: "/images/default.jpg",
-    enlace: "https://demo.com/plantilla",
+    enlace: "https://erick28hdz.github.io/Inmobiliaria-EleganciaHabitat/",
     categoria: "Plantillas y aplicaciones web",
-    subcategoria: "Sitios institucionales",
-    fecha: "2024-12-05",
+    subcategoria: "Landing Page",
+    fecha: "2025-07-13",
   },
   {
     id: 4,
