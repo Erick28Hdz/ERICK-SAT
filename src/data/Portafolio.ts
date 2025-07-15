@@ -34,7 +34,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 3,
     titulo: "Landing Page Inmobiliaria Elegancia Habitat",
-    descripcion: "Landing page desarrollada con JavaScript, CSS y html, con un diseño medio y responsive",
+    descripcion: "Landing page desarrollada con JavaScript, CSS y Html, con un diseño moderno y responsive.",
     imagen: "/images/portafolio/InmobiliariaEH.png",
     enlace: "https://erick28hdz.github.io/Inmobiliaria-EleganciaHabitat/",
     categoria: "Plantillas y aplicaciones web",
