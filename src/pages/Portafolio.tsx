@@ -5,15 +5,15 @@ import {
   Typography,
 } from "@mui/material";
 import { proyectos } from "../data/Portafolio";
-import UniversalContainer from "../components/UniversalContainer";
-import SectionTitle from "../components/SectionTitle";
-import IntroSection from "../components/IntroSection";
-import CategoryTabs from "../components/Tabs";
-import PortfolioCard from "../components/PortafolioCard";
-import CustomSelect from "../components/CustomSelect";
-import UniversalImage from "../components/UniversalImg";
+import UniversalContainer from "../components/universales/UniversalContainer";
+import SectionTitle from "../components/tipografias/SectionTitle";
+import IntroSection from "../components/ui/IntroSection";
+import CategoryTabs from "../components/ui/Tabs";
+import PortfolioCard from "../components/portafolio/PortafolioCard";
+import CustomSelect from "../components/ui/CustomSelect";
+import UniversalImage from "../components/universales/UniversalImg";
 import { useScrollTop } from "../hooks/useScrollTop";
-import UniversalPagination from "../components/UniversalPagination";
+import UniversalPagination from "../components/universales/UniversalPagination";
 import { usePagination } from "../hooks/usePagination";
 
 const categorias: string[] = [

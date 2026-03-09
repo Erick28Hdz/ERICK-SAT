@@ -1,15 +1,15 @@
 import React from 'react';
 import { Box, Typography } from "@mui/material";
-import UniversalContainer from '../components/UniversalContainer';
-import SectionTitle from '../components/SectionTitle';
-import SectionSubtitle from '../components/SectionSubtitle';
-import IntroSection from '../components/IntroSection';
-import UniversalImage from '../components/UniversalImg';
-import AboutCards from '../components/AboutCard';
-import CardDescription from '../components/CardDescrition';
-import UniversalCard from '../components/UniversalCard';
+import UniversalContainer from '../components/universales/UniversalContainer';
+import SectionTitle from '../components/tipografias/SectionTitle';
+import SectionSubtitle from '../components/tipografias/SectionSubtitle';
+import IntroSection from '../components/ui/IntroSection';
+import UniversalImage from '../components/universales/UniversalImg';
+import AboutCards from '../components/about/AboutCard';
+import CardDescription from '../components/ui/CardDescrition';
+import UniversalCard from '../components/universales/UniversalCard';
 import { useScrollTop } from '../hooks/useScrollTop';
-import ValueProposition from '../components/ValueProposition';
+import ValueProposition from '../components/incio/ValueProposition';
 
 const About: React.FC = () => {
 

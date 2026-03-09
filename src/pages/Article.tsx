@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom";
-import UniversalContainer from "../components/UniversalContainer";
+import UniversalContainer from "../components/universales/UniversalContainer";
 import articles from "../data/Articles";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubtitle from "../components/SectionSubtitle";
-import Button from "../components/Button";
-import UniversalImage from "../components/UniversalImg";
+import SectionTitle from "../components/tipografias/SectionTitle";
+import SectionSubtitle from "../components/tipografias/SectionSubtitle";
+import Button from "../components/ui/Button";
+import UniversalImage from "../components/universales/UniversalImg";
 import { useScrollTop } from '../hooks/useScrollTop';
 
 const ArticlePage = () => {

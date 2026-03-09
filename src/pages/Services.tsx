@@ -6,16 +6,16 @@ import {
 } from "@mui/material";
 import { servicios } from "../data/Servicios";
 import { parsePrice, formatPrice } from "../utils/formatPrice";
-import UniversalContainer from "../components/UniversalContainer";
-import SectionTitle from "../components/SectionTitle";
-import IntroSection from "../components/IntroSection";
-import ServiceCard from "../components/ServiceCard";
-import CategoryTabs from "../components/Tabs";
-import UniversalImage from "../components/UniversalImg";
-import CustomSelect from "../components/CustomSelect";
+import UniversalContainer from "../components/universales/UniversalContainer";
+import SectionTitle from "../components/tipografias/SectionTitle";
+import IntroSection from "../components/ui/IntroSection";
+import ServiceCard from "../components/servicios/ServiceCard";
+import CategoryTabs from "../components/ui/Tabs";
+import UniversalImage from "../components/universales/UniversalImg";
+import CustomSelect from "../components/ui/CustomSelect";
 import { useExchangeRates } from "../hooks/useExchangeRates";
 import { useScrollTop } from "../hooks/useScrollTop";
-import UniversalPagination from "../components/UniversalPagination";
+import UniversalPagination from "../components/universales/UniversalPagination";
 import { usePagination } from "../hooks/usePagination";
 
 // Define la interfaz del servicio

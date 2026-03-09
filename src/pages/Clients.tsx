@@ -2,15 +2,15 @@ import { Box, Typography, Grid, Paper, Avatar } from "@mui/material";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import BusinessIcon from "@mui/icons-material/Business";
 import PublicIcon from "@mui/icons-material/Public";
-import UniversalContainer from "../components/UniversalContainer";
-import SectionTitle from "../components/SectionTitle";
-import IntroSection from "../components/IntroSection";
-import SectionSubtitle from "../components/SectionSubtitle";
-import TestimonialCard from "../components/TestimonialCard";
+import UniversalContainer from "../components/universales/UniversalContainer";
+import SectionTitle from "../components/tipografias/SectionTitle";
+import IntroSection from "../components/ui/IntroSection";
+import SectionSubtitle from "../components/tipografias/SectionSubtitle";
+import TestimonialCard from "../components/ui/TestimonialCard";
 import { testimonios, casosDeExito } from "../data/Clientes";
-import UniversalImage from "../components/UniversalImg";
-import CardTitle from "../components/CardTitle";
-import CardDescription from "../components/CardDescrition";
+import UniversalImage from "../components/universales/UniversalImg";
+import CardTitle from "../components/ui/CardTitle";
+import CardDescription from "../components/ui/CardDescrition";
 import { useScrollTop } from "../hooks/useScrollTop";
 
 
