@@ -7,17 +7,17 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import UniversalContainer from "../components/universales/UniversalContainer";
+import UniversalContainer from "../components/ui/universales/arquitectura/UniversalSection";
 import SocialLinks from "../components/personales/SocialLinks";
 import emailjs from "@emailjs/browser";
-import SectionTitle from "../components/tipografias/SectionTitle";
-import IntroSection from "../components/ui/IntroSection";
-import UniversalImage from "../components/universales/UniversalImg";
+import SectionTitle from "../components/ui/tipografias/SectionTitle";
+import IntroSection from "../components/intro/IntroSection";
+import UniversalImage from "../components/ui/universales/UniversalImg";
 import ContactForm from "../components/ui/ContactForm";
-import UniversalCard from "../components/universales/UniversalCard";
+import UniversalCard from "../components/ui/universales/UniversalCard";
 import CardTitle from "../components/ui/CardTitle";
 import CardDescription from "../components/ui/CardDescrition";
-import SectionSubtitle from "../components/tipografias/SectionSubtitle";
+import SectionSubtitle from "../components/ui/tipografias/SectionSubtitle";
 import { useScrollTop } from "../hooks/useScrollTop";
 
 const schema = yup.object().shape({

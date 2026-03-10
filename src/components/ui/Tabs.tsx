@@ -44,7 +44,7 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({ value, onChange, categorias
         },
       }}
     >
-      {categorias.map((cat, i) => (
+      {categorias.map((cat) => (
         <Tab key={cat} label={cat} />
       ))}
     </Tabs>

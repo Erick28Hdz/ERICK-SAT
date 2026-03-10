@@ -1,8 +1,10 @@
 import React from "react";
-import SectionSubtitle from "../tipografias/SectionSubtitle";
-import UniversalCard from "../universales/UniversalCard";
+import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import UniversalCard from "../ui/universales/UniversalCard";
 import CardTitle from "../ui/CardTitle";
 import CardDescription from "../ui/CardDescrition";
+import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
 
 interface Promo {
   title: string;
@@ -15,37 +17,26 @@ interface ServiceNewsSectionProps {
 
 const ServiceNewsSection: React.FC<ServiceNewsSectionProps> = ({ promos }) => {
   return (
-    <section className="w-full mt-2 py-2">
-
+    <UniversalContainer>
       <div className="text-center mb-4">
         <SectionSubtitle>🌐 Novedades en servicios</SectionSubtitle>
       </div>
 
-      <div
-        className="
-          grid
-          gap-6
-          mx-auto
-          max-w-5xl
-          grid-cols-1
-          md:grid-cols-2
-          justify-items-center
-        "
+      <UniversalGrid
+        cols={2}
+        className="gap-6 justify-items-center max-w-5xl mx-auto"
       >
         {promos.map(({ title, description }, index) => (
           <UniversalCard key={index} className="p-6">
-            <CardTitle>
-              {title}
-            </CardTitle>
+            <CardTitle>{title}</CardTitle>
 
             <CardDescription className="mt-3 text-(--color-beige) opacity-80 leading-relaxed">
               {description}
             </CardDescription>
           </UniversalCard>
         ))}
-      </div>
-
-    </section>
+      </UniversalGrid>
+    </UniversalContainer>
   );
 };
 

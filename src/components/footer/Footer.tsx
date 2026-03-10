@@ -1,6 +1,6 @@
 import React from "react";
 import SocialLinks from "../personales/SocialLinks";
-import SectionSubtitle from "../tipografias/SectionSubtitle";
+import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
 import CardDescription from "../ui/CardDescrition";
 import FooterLinks from "./FooterLink";
 

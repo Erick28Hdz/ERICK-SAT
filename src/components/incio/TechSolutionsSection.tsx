@@ -1,71 +1,57 @@
 import React from "react";
-import SectionSubtitle from "../tipografias/SectionSubtitle";
-import UniversalCard from "../universales/UniversalCard";
+import { FaShieldAlt, FaCode, FaCloud } from "react-icons/fa";
+
+import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import UniversalCard from "../ui/universales/UniversalCard";
 import CardTitle from "../ui/CardTitle";
 import CardDescription from "../ui/CardDescrition";
+import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
+import UniversalIcon from "../ui/universales/UniversalIcon";
 
-interface Solution {
-  title: string;
-  description: string;
-  icon: React.ElementType;
-}
+const soluciones = [
+  {
+    title: "Ciberseguridad",
+    description:
+      "Pentesting, protección de redes, consultoría y normativas de cumplimiento.",
+    icon: <FaShieldAlt />,
+  },
+  {
+    title: "Desarrollo de Software",
+    description:
+      "Aplicaciones personalizadas, paneles de administración y APIs integradas.",
+    icon: <FaCode />,
+  },
+  {
+    title: "Infraestructura Cloud",
+    description:
+      "Soluciones escalables en la nube, automatización con DevOps y respaldo seguro.",
+    icon: <FaCloud />,
+  },
+];
 
-interface TechSolutionsSectionProps {
-  soluciones: Solution[];
-}
-
-const TechSolutionsSection: React.FC<TechSolutionsSectionProps> = ({ soluciones }) => {
+const TechSolutionsSection: React.FC = () => {
   return (
-    <section className="w-full mb-4 mt-2 py-4">
-
-      <div className="text-center mb-2">
+    <UniversalContainer>
+      <div className="text-center m-4">
         <SectionSubtitle>🔧 Soluciones Tecnológicas</SectionSubtitle>
       </div>
 
-      <div
-        className="
-          grid
-          gap-8
-          mx-auto
-          max-w-6xl
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-3
-          justify-items-center
-        "
-      >
-        {soluciones.map(({ title, description, icon: Icon }, index) => (
-          <UniversalCard key={index} className="p-6 m-4 w-full max-w-sm">
+      <UniversalGrid cols={3} className="items-stretch">
+        {soluciones.map(({ title, description, icon }, index) => (
+          <UniversalCard
+            key={index}
+            className="flex flex-col items-center justify-center text-center p-6 group"
+          >
+            <UniversalIcon>{icon}</UniversalIcon>
 
-            <div className="text-center group">
+            <CardTitle>{title}</CardTitle>
 
-              <Icon
-                className="
-                  text-5xl
-                  mb-3
-                  text-black
-                  transition-all
-                  duration-300
-                  group-hover:text-(--color-light-blue)
-                  group-hover:scale-110
-                "
-              />
-
-              <CardTitle>
-                {title}
-              </CardTitle>
-
-              <CardDescription className="mt-3 leading-relaxed text-(--color-beige) opacity-80">
-                {description}
-              </CardDescription>
-
-            </div>
-
+            <CardDescription>{description}</CardDescription>
           </UniversalCard>
         ))}
-      </div>
-
-    </section>
+      </UniversalGrid>
+    </UniversalContainer>
   );
 };
 

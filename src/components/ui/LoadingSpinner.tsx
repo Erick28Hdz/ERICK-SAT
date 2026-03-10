@@ -1,6 +1,6 @@
 // components/LoadingSpinner.tsx
 import React from 'react';
-import UniversalContainer from '../universales/UniversalContainer';
+import UniversalContainer from './universales/arquitectura/UniversalSection';
 
 const LoadingSpinner: React.FC = () => {
   return (

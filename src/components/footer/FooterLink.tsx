@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import UniversalCard from "../universales/UniversalCard";
+import UniversalCard from "../ui/universales/UniversalCard";
 import { styled } from "@mui/system";
-import UniversalModal from "../universales/UniversalModal";
+import UniversalModal from "../ui/universales/UniversalModal";
 import { legalTexts } from "../../data/LegalContent";
 import { toUpperCase } from "../../utils/capitalize";
 

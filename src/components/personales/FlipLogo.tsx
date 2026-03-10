@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import SectionTitle from "../tipografias/SectionTitle";
+import SectionTitle from "../ui/tipografias/SectionTitle";
 import logo from "../../assets/logo.png";
 
 const FlipTitleLogo: React.FC = () => {

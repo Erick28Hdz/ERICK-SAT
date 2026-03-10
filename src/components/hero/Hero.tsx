@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import SectionTitle from "../tipografias/SectionTitle";
-import UniversalImage from "../universales/UniversalImg";
+import SectionTitle from "../ui/tipografias/SectionTitle";
+import UniversalImage from "../ui/universales/UniversalImg";
 import Button from "../ui/Button";
 import CardDescription from "../ui/CardDescrition";
 

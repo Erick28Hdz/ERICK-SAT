@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import UniversalCard from "../universales/UniversalCard";
+import UniversalCard from "../ui/universales/UniversalCard";
 import CardTitle from "../ui/CardTitle";
 import CardDescription from "../ui/CardDescrition";
 
@@ -27,21 +27,21 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           w-full
           h-full
           p-5
-          !no-underline
+          no-underline!
           transition-all
           duration-200
           hover:scale-[1.02]
         "
       >
-        <CardTitle>
+        <CardTitle >
           {title}
         </CardTitle>
 
-        <CardDescription className="mt-3 text-sm leading-relaxed text-[var(--color-light)]">
+        <CardDescription className="mt-3 text-sm leading-relaxed text-(--color-light)">
           {description}
         </CardDescription>
 
-        <p className="mt-4 text-xs tracking-wide text-[var(--color-light-blue)] opacity-80">
+        <p className="mt-4 text-xs tracking-wide text-(--color-light-blue) opacity-80">
           Categoría: {category}
         </p>
       </Link>

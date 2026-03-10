@@ -8,10 +8,10 @@ import {
     CardActions,
 } from "@mui/material";
 import Button from "../ui/Button";
-import UniversalImage from "../universales/UniversalImg";
+import UniversalImage from "../ui/universales/UniversalImg";
 import CardTitle from "../ui/CardTitle";
 import CardDescription from "../ui/CardDescrition";
-import UniversalCard from "../universales/UniversalCard";
+import UniversalCard from "../ui/universales/UniversalCard";
 
 type PortfolioCardProps = {
     title: string;

@@ -12,7 +12,7 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
   fontFamily: "var(--font-tech)",
   fontWeight: 600,
   fontSize: "clamp(1.1rem, 1vw + 0.4rem, 1.5rem)",
-  color: "var(--color-black)",
+  color: "inherit",
   letterSpacing: 2,
   marginTop: theme.spacing(2),
   marginBottom: theme.spacing(1),
@@ -25,9 +25,9 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const CardTitle: React.FC<CardTitleProps> = ({ children, sx }) => {
+const CardTitle: React.FC<CardTitleProps> = ({ children, sx, className  }) => {
   return (
-    <StyledTitle variant="h4" sx={sx}>
+    <StyledTitle variant="h4" sx={sx} className={className}>
       {children}
     </StyledTitle>
   );

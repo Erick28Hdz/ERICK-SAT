@@ -10,10 +10,11 @@ const CardDescription = ({ children, className = "" }: CardDescriptionProps) => 
     <p
       className={`
       font-sans
-      text-[clamp(0.85rem,1vw+0.4rem,1.1rem)]
+      text-[clamp(0.8rem,0.4vw+0.7rem,0.95rem)]
       text-(--color-beige)
       leading-relaxed
-      max-w-[65ch]
+      max-w-[60ch]
+      opacity-90
       transition-all
       ${className}
       `}

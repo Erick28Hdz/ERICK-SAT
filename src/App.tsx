@@ -1,6 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Intro from "./components/personales/Intro";
+import Intro from "./components/intro/Intro";
 import MainLayout from "./layouts/MainLayout";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 

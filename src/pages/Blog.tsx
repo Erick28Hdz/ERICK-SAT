@@ -4,20 +4,20 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import UniversalContainer from "../components/universales/UniversalContainer";
+import UniversalContainer from "../components/ui/universales/arquitectura/UniversalSection";
 import articles from "../data/Articles";
-import SectionTitle from "../components/tipografias/SectionTitle";
-import IntroSection from "../components/ui/IntroSection";
+import SectionTitle from "../components/ui/tipografias/SectionTitle";
+import IntroSection from "../components/intro/IntroSection";
 import BasePaper from "../components/ui/Paper";
 import SearchInput from "../components/ui/SearchInput";
 import CustomSelect from "../components/ui/CustomSelect";
-import UniversalImage from "../components/universales/UniversalImg";
+import UniversalImage from "../components/ui/universales/UniversalImg";
 import { Link } from "react-router-dom";
 import CardTitle from "../components/ui/CardTitle";
 import CardDescription from "../components/ui/CardDescrition";
 import { useScrollTop } from "../hooks/useScrollTop";
 import { usePagination } from "../hooks/usePagination";
-import UniversalPagination from "../components/universales/UniversalPagination";
+import UniversalPagination from "../components/ui/universales/UniversalPagination";
 
 const Blog: React.FC = () => {
   useScrollTop();
