@@ -1,19 +1,26 @@
-import type { ReactNode } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/ui/navbar/Navbar";
+import Footer from "../components/ui/footer/Footer";
 
-interface MainLayoutProps {
-  children: ReactNode
-}
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+      className="
+        flex
+        flex-col
+        min-h-screen
+        bg-(--color-dark-blue)
+      "
+    >
       <Navbar />
-      <main className="flex-grow">{children}</main>
+
+      <main className="grow">
+        <Outlet />
+      </main>
+
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

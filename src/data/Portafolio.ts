@@ -7,14 +7,15 @@ export interface Proyecto {
   enlace?: string;
   categoria: string;
   subcategoria: string;
-  fecha: string; 
+  fecha: string;
 }
 
 export const proyectos: Proyecto[] = [
   {
     id: 1,
     titulo: "Escaneo de Red Interna",
-    descripcion: "Auditoría de red utilizando Nmap y Wireshark para detectar vulnerabilidades.",
+    descripcion:
+      "Auditoría de red utilizando Nmap y Wireshark para detectar vulnerabilidades.",
     imagen: "/images/default.jpg",
     enlace: "https://github.com/erick/proyecto-auditoria",
     categoria: "Ciberseguridad",
@@ -24,7 +25,8 @@ export const proyectos: Proyecto[] = [
   {
     id: 2,
     titulo: "Generador de Scripts Bash",
-    descripcion: "Automatización de tareas en Linux con scripts personalizados.",
+    descripcion:
+      "Automatización de tareas en Linux con scripts personalizados.",
     imagen: "/images/default.jpg",
     enlace: "",
     categoria: "Scripts personalizados",
@@ -34,7 +36,8 @@ export const proyectos: Proyecto[] = [
   {
     id: 3,
     titulo: "Landing Page Inmobiliaria Elegancia Habitat",
-    descripcion: "Landing page desarrollada con JavaScript, CSS y Html, con un diseño moderno y responsive.",
+    descripcion:
+      "Landing page desarrollada con JavaScript, CSS y Html, con un diseño moderno y responsive.",
     imagen: "/images/portafolio/InmobiliariaEH.png",
     enlace: "https://erick28hdz.github.io/Inmobiliaria-EleganciaHabitat/",
     categoria: "Plantillas y aplicaciones web",
@@ -44,9 +47,11 @@ export const proyectos: Proyecto[] = [
   {
     id: 4,
     titulo: "Conversor de imagenes",
-    descripcion: "Convierte, renderiza y cambia el tamaño de tus imagenes unicas, varias o toda una carpeta.",
+    descripcion:
+      "Convierte, renderiza y cambia el tamaño de tus imagenes unicas, varias o toda una carpeta.",
     imagen: "/images/portafolio/conversor_imagenes.png",
-    enlace: "https://drive.google.com/file/d/1ubWoZXymmlUO2VBrqsNem6ebmJ6FqFf-/view?usp=drive_link",
+    enlace:
+      "https://drive.google.com/file/d/1ubWoZXymmlUO2VBrqsNem6ebmJ6FqFf-/view?usp=drive_link",
     categoria: "Scripts personalizados",
     subcategoria: "Programas básicos",
     fecha: "2025-07-15",
@@ -54,7 +59,8 @@ export const proyectos: Proyecto[] = [
   {
     id: 5,
     titulo: "Landing Page RUMBO",
-    descripcion: "Desarrollo de landing page profesional desde cero con HTML y CSS.",
+    descripcion:
+      "Desarrollo de landing page profesional desde cero con HTML y CSS.",
     imagen: "/images/portafolio/Rumbo.png",
     enlace: "https://erick28hdz.github.io/PaginaRumbo/",
     categoria: "Desarrollo Web por Niveles",
@@ -64,7 +70,8 @@ export const proyectos: Proyecto[] = [
   {
     id: 6,
     titulo: "Portafolio Web Profesional",
-    descripcion: "Desarrollo de portafolio personal utilizando HTML, CCS y JavaScript",
+    descripcion:
+      "Desarrollo de portafolio personal utilizando HTML, CCS y JavaScript",
     imagen: "/images/portafolio/Portafolio.png",
     enlace: "https://erick28hdz.github.io/PortafolioWeb/",
     categoria: "Desarrollo Web por Niveles",
@@ -74,11 +81,23 @@ export const proyectos: Proyecto[] = [
   {
     id: 7,
     titulo: "Generador contraseñas profesional",
-    descripcion: "Aplicación profesional para generar contraseñas y cifracrlas, guarda la contraseña en la nube directamente con google drive.",
+    descripcion:
+      "Aplicación profesional para generar contraseñas y cifracrlas, guarda la contraseña en la nube directamente con google drive.",
     imagen: "/images/portafolio/gen-pro.png",
     enlace: "https://generador-contrasenas-pro.onrender.com/",
     categoria: "Ciberseguridad",
     subcategoria: "Aplicaciones",
     fecha: "2025-06-28",
-  }
+  },
+  {
+    id: 8,
+    titulo: "Portafolio Web Profesional",
+    descripcion:
+      "Portafolio web personal desarrollado con React, TypeScript y Tailwind CSS. Presenta mis proyectos, servicios y experiencia en desarrollo web y ciberseguridad, con un diseño moderno, arquitectura modular y despliegue en Vercel.",
+    imagen: "/images/portafolio/portafolio-dos.png",
+    enlace: "https://portafolio-erickhdz.vercel.app/",
+    categoria: "Plantillas y aplicaciones web",
+    subcategoria: "Aplicaciones Web",
+    fecha: "2026-03-04",
+  },
 ];
