@@ -48,8 +48,8 @@ const Hero = () => {
         "
       >
         {/* Columna izquierda */}
-        <div className="w-full md:w-[60%] md:pr-4 text-center md:text-left">
-          <Heading level={2} color="blue" align="left" transform="uppercase">
+        <div className="p-4 w-full md:w-[60%] md:pr-4 text-center md:text-left">
+          <Heading level={3} color="blue" align="left" transform="uppercase">
             Innovación en Desarrollo de Software y Tecnología
           </Heading>
 
