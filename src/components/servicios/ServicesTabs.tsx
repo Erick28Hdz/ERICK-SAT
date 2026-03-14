@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryTabs from "../ui/arquitectura/Tabs";
 import UniversalContainer from "../ui/universales/UniversalContainer";
+import { trackServiceCategoryClick } from "../../analitycs/events";
 
 const categorias = [
   "Todas",
@@ -19,6 +20,8 @@ interface Props {
 const ServicesTabs: React.FC<Props> = ({ value, onChange }) => {
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     onChange(newValue);
+
+    trackServiceCategoryClick(categorias[newValue]);
   };
 
   return (

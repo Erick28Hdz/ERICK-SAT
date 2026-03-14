@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import type { AlertColor } from "@mui/material";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { trackFormSubmit } from "../analitycs/events";
 export interface FormData {
   name: string;
   email: string;
@@ -48,6 +48,7 @@ export const useContactForm = () => {
         throw new Error("Error enviando el mensaje");
       }
 
+      trackFormSubmit("contact_form");
       console.log("Correo enviado correctamente");
 
       setSnackbarMessage("¡Mensaje enviado exitosamente!");

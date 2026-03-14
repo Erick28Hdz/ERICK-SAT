@@ -1,5 +1,6 @@
 import React from "react";
 import { socialLinks, type SocialKey } from "../../../data/socialLinks";
+import { trackSocialClick } from "../../../analitycs/events";
 
 interface SocialLinksProps {
   hide?: SocialKey[];
@@ -20,6 +21,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ hide = [] }) => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: item.color }}
+            onClick={() => trackSocialClick(item.key, item.href)}
             className="
               p-2
               transition-all
