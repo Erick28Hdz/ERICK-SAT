@@ -46,7 +46,12 @@ export const useContactForm = () => {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      let result;
+      try {
+        result = await response.json(); // Intentamos parsear JSON
+      } catch {
+        result = { error: "Respuesta no válida del servidor" }; // fallback si no es JSON
+      }
 
       if (!response.ok) {
         console.error("Error del API:", result);
