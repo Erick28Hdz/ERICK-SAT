@@ -5,6 +5,8 @@ import UniversalImage from "../universales/UniversalImg";
 import Heading from "../tipografias/Heading";
 import CardDescription from "./CardDescrition";
 import UniversalCard from "../universales/UniversalCard";
+import { trackPortfolioProjectClick } from "../../../analitycs/events";
+
 
 type PortfolioCardProps = {
   title: string;
@@ -72,7 +74,12 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
       {/* Botón */}
       <div className="mt-5">
         {link ? (
-          <Button href={link} target="_blank" rel="noopener noreferrer">
+          <Button
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackPortfolioProjectClick(title, link)}
+          >
             Ver Proyecto
           </Button>
         ) : (

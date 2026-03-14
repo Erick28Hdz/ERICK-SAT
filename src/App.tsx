@@ -4,6 +4,8 @@ import Intro from "./components/ui/intro/Intro";
 import MainLayout from "./layouts/MainLayout";
 import LoadingSpinner from "./components/ui/arquitectura/LoadingSpinner";
 
+import { useAnalyticsTracker } from "./hooks/useAnalyticsTracker";
+
 const Inicio = lazy(() => import("./pages/Inicio"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
@@ -15,6 +17,8 @@ const ArticlePage = lazy(() => import("./pages/Article"));
 
 function App() {
   const [hasEntered, setHasEntered] = useState(false);
+
+  useAnalyticsTracker();
 
   if (!hasEntered) {
     return <Intro onEnter={() => setHasEntered(true)} />;

@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
 
       {/* Redes sociales */}
       <div className="w-full md:w-[25%] flex justify-center">
-        <SocialLinks hide={["github", "telegram"]} />
+        <SocialLinks/>
       </div>
     </footer>
   );
