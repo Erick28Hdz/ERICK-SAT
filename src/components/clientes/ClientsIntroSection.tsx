@@ -1,8 +1,21 @@
 import React from "react";
+import { motion, easeOut } from "framer-motion";
 import Heading from "../ui/tipografias/Heading";
 import UniversalImage from "../ui/universales/UniversalImg";
 import UniversalGrid from "../ui/universales/UniversalGrid";
 import UniversalContainer from "../ui/universales/UniversalContainer";
+
+// Variants para animación de texto
+const textVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+};
+
+// Variants para animación de imagen
+const imageVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+};
 
 const ClientsIntroSection: React.FC = () => {
   return (
@@ -13,7 +26,13 @@ const ClientsIntroSection: React.FC = () => {
 
       <UniversalGrid cols={2} className="items-center mt-4 gap-10">
         {/* TEXTO */}
-        <div className="text-(--color-light) leading-relaxed text-[clamp(1rem,1vw+0.4rem,1.2rem)] max-w-[65ch]">
+        <motion.div
+          className="text-(--color-light) leading-relaxed text-[clamp(1rem,1vw+0.4rem,1.2rem)] max-w-[65ch]"
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <p>
             ERICK SOFTWARE AND TECHNOLOGY está orientada a atender una amplia
             variedad de clientes, desde personas sin experiencia técnica hasta
@@ -54,12 +73,18 @@ const ClientsIntroSection: React.FC = () => {
             • <strong>ONGs y entidades públicas</strong> que buscan asegurar sus
             plataformas o capacitar a su personal en tecnología básica.
           </p>
-        </div>
+        </motion.div>
 
         {/* IMAGEN */}
-        <div className="flex justify-center">
+        <motion.div
+          className="flex justify-center"
+          variants={imageVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <UniversalImage src="/images/cliente.jpg" alt="Nuestros clientes" />
-        </div>
+        </motion.div>
       </UniversalGrid>
     </UniversalContainer>
   );

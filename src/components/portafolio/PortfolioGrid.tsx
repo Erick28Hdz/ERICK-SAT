@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import PortfolioCard from "../ui/cards/PortafolioCard";
 import UniversalGrid from "../ui/universales/UniversalGrid";
 import UniversalContainer from "../ui/universales/UniversalContainer";
@@ -8,7 +8,14 @@ import type { Proyecto } from "../../data/Portafolio";
 interface Props {
   proyectos: Proyecto[];
 }
-
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 const PortfolioGrid: React.FC<Props> = ({ proyectos }) => {
   if (proyectos.length === 0) {
     return (
@@ -21,16 +28,23 @@ const PortfolioGrid: React.FC<Props> = ({ proyectos }) => {
   return (
     <UniversalContainer>
       <UniversalGrid cols={3} className="mt-2">
-        {proyectos.map((proyecto) => (
-          <PortfolioCard
+        {proyectos.map((proyecto, index) => (
+          <motion.div
             key={proyecto.id}
-            title={proyecto.titulo}
-            description={proyecto.descripcion}
-            image={proyecto.imagen}
-            category={proyecto.categoria}
-            link={proyecto.enlace}
-            subcategory={proyecto.subcategoria}
-          />
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: index * 0.1 }} // stagger
+          >
+            <PortfolioCard
+              title={proyecto.titulo}
+              description={proyecto.descripcion}
+              image={proyecto.imagen}
+              category={proyecto.categoria}
+              link={proyecto.enlace}
+              subcategory={proyecto.subcategoria}
+            />
+          </motion.div>
         ))}
       </UniversalGrid>
     </UniversalContainer>

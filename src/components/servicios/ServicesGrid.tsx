@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, easeOut } from "framer-motion";
 
 import { servicios } from "../../data/Servicios";
 import { parsePrice, formatPrice } from "../../utils/formatPrice";
@@ -24,8 +25,28 @@ const categorias = [
   "Desarrollo Web por Niveles",
 ];
 
-const ServicesGrid: React.FC<Props> = ({ categoria, moneda, locale }) => {
+// Variants para animación de contenedor y tarjetas
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }, // anima los hijos uno tras otro
+  },
+};
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOut, // ✅ ahora TypeScript no se queja
+    },
+  },
+};
+
+const ServicesGrid: React.FC<Props> = ({ categoria, moneda, locale }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const servicesPerPage = 6;
 
@@ -34,7 +55,6 @@ const ServicesGrid: React.FC<Props> = ({ categoria, moneda, locale }) => {
   if (loading) return <p className="text-beige">Cargando tasas...</p>;
 
   const serviciosFormateados = servicios.map((servicio) => {
-
     const precioMinCOP = parsePrice(servicio.precioMin);
     const precioMaxCOP = parsePrice(servicio.precioMax);
 
@@ -46,7 +66,6 @@ const ServicesGrid: React.FC<Props> = ({ categoria, moneda, locale }) => {
       precioMin: formatPrice(precioMinCOP * tasaCambio, locale, moneda),
       precioMax: formatPrice(precioMaxCOP * tasaCambio, locale, moneda),
     };
-
   });
 
   const serviciosFiltrados = serviciosFormateados.filter((s) =>
@@ -60,50 +79,48 @@ const ServicesGrid: React.FC<Props> = ({ categoria, moneda, locale }) => {
     currentPage * servicesPerPage
   );
 
+  if (serviciosFiltrados.length === 0) {
+    return (
+      <p className="text-center text-gray-400 mt-6">
+        No hay servicios disponibles.
+      </p>
+    );
+  }
+
   return (
     <>
+      <UniversalContainer>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <UniversalGrid cols={3} className="mt-2">
+            {paginated.map((s, idx) => (
+              <motion.div key={idx} variants={cardVariants}>
+                <ServiceCard
+                  title={s.nombre}
+                  description={s.descripcion}
+                  values={[
+                    { label: "Dificultad", value: s.dificultad },
+                    { label: "Tiempo estimado", value: s.tiempo },
+                    { label: "Precio", value: `${s.precioMin} – ${s.precioMax}` },
+                    { label: "Entregables", value: s.entregables.join(", ") },
+                  ]}
+                />
+              </motion.div>
+            ))}
+          </UniversalGrid>
+        </motion.div>
+      </UniversalContainer>
 
-      {serviciosFiltrados.length === 0 ? (
-
-        <p className="text-center text-gray-400 mt-6">
-          No hay servicios disponibles.
-        </p>
-
-      ) : (
-        <UniversalContainer>
-        <UniversalGrid cols={3} className="mt-2">
-
-          {paginated.map((s, idx) => (
-
-            <ServiceCard
-              key={idx}
-              title={s.nombre}
-              description={s.descripcion}
-              values={[
-                { label: "Dificultad", value: s.dificultad },
-                { label: "Tiempo estimado", value: s.tiempo },
-                { label: "Precio", value: `${s.precioMin} – ${s.precioMax}` },
-                { label: "Entregables", value: s.entregables.join(", ") },
-              ]}
-            />
-
-          ))}
-
-        </UniversalGrid>
-        </UniversalContainer>
-
-      )}
-
-      {serviciosFiltrados.length > 6 && (
-
+      {serviciosFiltrados.length > servicesPerPage && (
         <UniversalPagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={setCurrentPage}
         />
-
       )}
-
     </>
   );
 };

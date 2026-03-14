@@ -1,16 +1,34 @@
 import React from "react";
+import { motion, easeOut } from "framer-motion";
 import Heading from "../ui/tipografias/Heading";
 import UniversalImage from "../ui/universales/UniversalImg";
 import CardDescription from "../ui/cards/CardDescrition";
 import UniversalContainer from "../ui/universales/UniversalContainer";
 import UniversalGrid from "../ui/universales/UniversalGrid";
 
+// Variants para animación de entrada
+const imageVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+};
+
 const FounderProfileSection: React.FC = () => {
   return (
     <UniversalContainer>
       <UniversalGrid cols={2} className="items-start">
         {/* PERFIL */}
-        <div className="flex flex-col items-center">
+        <motion.div
+          className="flex flex-col items-center"
+          variants={imageVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div
             className="
               w-45 h-45
@@ -38,10 +56,16 @@ const FounderProfileSection: React.FC = () => {
               Erick Hernández
             </Heading>
           </div>
-        </div>
+        </motion.div>
 
         {/* DESCRIPCIÓN */}
-        <div className="text-left">
+        <motion.div
+          className="text-left"
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <CardDescription>
             Desarrollador autodidacta con enfoque en software funcional,
             automatización de procesos y ciberseguridad.
@@ -61,7 +85,7 @@ const FounderProfileSection: React.FC = () => {
             Actualmente reside en Bogotá y trabaja de forma remota con empresas,
             emprendedores y comunidades educativas.
           </CardDescription>
-        </div>
+        </motion.div>
       </UniversalGrid>
     </UniversalContainer>
   );

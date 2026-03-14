@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, easeOut } from "framer-motion";
 import { FaLightbulb, FaEye, FaShieldAlt } from "react-icons/fa";
 import UniversalContainer from "../ui/universales/UniversalContainer";
 import UniversalGrid from "../ui/universales/UniversalGrid";
@@ -44,12 +45,31 @@ const aboutData: AboutItem[] = [
   },
 ];
 
+// Variants para cada tarjeta
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+};
+
+// Variants para el contenedor del grid (stagger)
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
 export default function AboutCards() {
   return (
     <UniversalContainer>
-      <UniversalGrid cols={3} className="px-3 py-4">
-        {aboutData.map(({ id, title, content, icon }) => (
-          <UniversalCard key={id} className="p-6 group">
+      <motion.div
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <UniversalGrid cols={3} className="px-3 py-4">
+          {aboutData.map(({ id, title, content, icon }) => (
+            <motion.div key={id} variants={cardVariants}>
+              <UniversalCard key={id} className="min-h-80 p-6 group">
             <div className="text-center">
               {/* ICONO */}
               {icon && <UniversalIcon>{icon}</UniversalIcon>}
@@ -76,8 +96,10 @@ export default function AboutCards() {
               </CardDescription>
             </div>
           </UniversalCard>
-        ))}
-      </UniversalGrid>
+            </motion.div>
+          ))}
+        </UniversalGrid>
+      </motion.div>
     </UniversalContainer>
   );
 }
