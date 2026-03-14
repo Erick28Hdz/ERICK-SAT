@@ -61,7 +61,7 @@ export default async function handler(
   try {
 
     await resend.emails.send({
-      from: "ERICK-SAT <contacto@ericksat.com>",
+      from: "ERICK-SAT <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL as string,
       subject: `Nuevo contacto desde ERICK-SAT`,
       html: `
