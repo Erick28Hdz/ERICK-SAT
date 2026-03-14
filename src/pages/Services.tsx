@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import UniversalSection from "../components/ui/universales/arquitectura/UniversalSection";
-
+import UniversalSection from "../components/ui/universales/UniversalSection";
 import ServicesIntroSection from "../components/servicios/ServicesIntro";
 import ServicesTabs from "../components/servicios/ServicesTabs";
 import ServicesGrid from "../components/servicios/ServicesGrid";

@@ -1,6 +1,6 @@
 import React from "react";
-import CustomSelect from "../ui/CustomSelect";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import CustomSelect from "../ui/arquitectura/CustomSelect";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 interface Props {
   moneda: string;
   setMoneda: (value: string) => void;

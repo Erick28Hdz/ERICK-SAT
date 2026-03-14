@@ -1,10 +1,9 @@
 import React from "react";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import Heading from "../ui/tipografias/Heading";
 import UniversalCard from "../ui/universales/UniversalCard";
-import CardTitle from "../ui/CardTitle";
-import CardDescription from "../ui/CardDescrition";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
+import CardDescription from "../ui/cards/CardDescrition";
+import UniversalContainer from "../ui/universales/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
 
 interface Promo {
   title: string;
@@ -19,7 +18,14 @@ const ServiceNewsSection: React.FC<ServiceNewsSectionProps> = ({ promos }) => {
   return (
     <UniversalContainer>
       <div className="text-center mb-4">
-        <SectionSubtitle>🌐 Novedades en servicios</SectionSubtitle>
+        <Heading
+          level={4}
+          variant="section"
+          color="beige"
+          transform="capitalize"
+        >
+          🌐 Novedades y actualizaciones
+        </Heading>
       </div>
 
       <UniversalGrid
@@ -28,9 +34,16 @@ const ServiceNewsSection: React.FC<ServiceNewsSectionProps> = ({ promos }) => {
       >
         {promos.map(({ title, description }, index) => (
           <UniversalCard key={index} className="p-6">
-            <CardTitle>{title}</CardTitle>
+            <Heading
+              level={3}
+              variant="card"
+              color="light"
+              transform="capitalize"
+            >
+              {title}
+            </Heading>
 
-            <CardDescription className="mt-3 text-(--color-beige) opacity-80 leading-relaxed">
+            <CardDescription className="mt-2 text-(--color-beige) opacity-80 leading-relaxed">
               {description}
             </CardDescription>
           </UniversalCard>

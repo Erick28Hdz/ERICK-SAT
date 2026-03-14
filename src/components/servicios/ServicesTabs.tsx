@@ -1,6 +1,6 @@
 import React from "react";
-import CategoryTabs from "../ui/Tabs";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import CategoryTabs from "../ui/arquitectura/Tabs";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 
 const categorias = [
   "Todas",

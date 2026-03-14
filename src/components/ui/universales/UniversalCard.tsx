@@ -1,62 +1,36 @@
-// components/UniversalCard.tsx
-import React from "react";
-import { Card, CardContent, type CardProps, useMediaQuery, useTheme } from "@mui/material";
+import type { ReactNode } from "react";
 
-interface UniversalCardProps extends CardProps {
-  children: React.ReactNode;
-  contentFlexDirection?: "row" | "column";
+interface UniversalCardProps {
+  children: ReactNode;
+  className?: string;
 }
 
-const UniversalCard: React.FC<UniversalCardProps> = ({
-  children,
-  sx,
-  contentFlexDirection = "column",
-  ...rest
-}) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // true si ancho < 600px
-
+const UniversalCard = ({ children, className = "" }: UniversalCardProps) => {
   return (
-    <Card
-      variant="outlined"
-      className="custom-service-card"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        height: "100%",
-        width: "100%",
-        maxWidth: "clamp(280px, 85vw, 380px)",
-        borderRadius: "20px 0",
-        borderLeft: "2px solid var(--color-beige)",
-        borderRight: "2px solid transparent",
-        background: "rgba(255, 255, 255, 0.05)",
-        backdropFilter: "blur(10px)",
-        transition: "all 0.3s ease",
-        overflow: "hidden",
-        '&:hover': {
-          boxShadow: "0 0 30px rgba(0, 255, 255, 0.25)",
-          transform: "translateY(-5px)",
-          borderLeft: "2px solid var(--color-light-blue)",
-          borderRight: "2px solid var(--color-light-blue)",
-        },
-        ...sx,
-      }}
-      {...rest}
+    <div
+      className={`
+        group
+        w-full
+        max-w-95
+        min-h-10
+        flex flex-col justify-between items-center
+        p-4
+        text-center
+        rounded-[20px_0]
+        border-l-2 border-r-2 border-transparent
+        border-l-(--color-beige)
+        bg-white/5
+        backdrop-blur-md
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-[0_0_30px_rgba(0,255,255,0.25)]
+        hover:border-l-(--color-light-blue)
+        hover:border-r-(--color-light-blue)
+        ${className}
+      `}
     >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: isMobile ? "column" : contentFlexDirection,
-          flexGrow: 1,
-          height: "100%",
-          padding: isMobile ? 1.5 : 2,
-          gap: isMobile ? 1.5 : 2,
-        }}
-      >
-        {children}
-      </CardContent>
-    </Card>
+      {children}
+    </div>
   );
 };
 

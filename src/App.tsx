@@ -1,8 +1,8 @@
-import React, { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Intro from "./components/intro/Intro";
+import Intro from "./components/ui/intro/Intro";
 import MainLayout from "./layouts/MainLayout";
-import LoadingSpinner from "./components/ui/LoadingSpinner";
+import LoadingSpinner from "./components/ui/arquitectura/LoadingSpinner";
 
 const Inicio = lazy(() => import("./pages/Inicio"));
 const About = lazy(() => import("./pages/About"));

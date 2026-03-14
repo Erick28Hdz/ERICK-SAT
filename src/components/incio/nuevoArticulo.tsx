@@ -1,8 +1,8 @@
 import React from "react";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 import articles from "../../data/Articles";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
-import ArticleCard from "../blog/ArticleCard";
+import Heading from "../ui/tipografias/Heading";
+import ArticleCard from "../ui/cards/ArticleCard";
 
 const ultimosArticulos = articles
   .filter((a) => a.fecha)
@@ -11,10 +11,11 @@ const ultimosArticulos = articles
 
 const NuevosArticulos: React.FC = () => {
   return (
-    <UniversalContainer >
-
+    <UniversalContainer>
       <div className="text-center">
-        <SectionSubtitle>📚 Últimos Artículos</SectionSubtitle>
+        <Heading level={4} variant="section" color="beige" transform="capitalize">
+          📰 Nuevos Proyectos
+        </Heading>
       </div>
 
       {ultimosArticulos.length > 0 ? (
@@ -47,7 +48,6 @@ const NuevosArticulos: React.FC = () => {
           No hay artículos recientes publicados.
         </p>
       )}
-
     </UniversalContainer>
   );
 };

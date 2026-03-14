@@ -1,6 +1,6 @@
 import React from "react";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import Heading from "../ui/tipografias/Heading";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 
 interface AdNoticeSectionProps {
   ads: string[];
@@ -19,11 +19,11 @@ const AdNoticeSection: React.FC<AdNoticeSectionProps> = ({ ads }) => {
       "
     >
       <UniversalContainer className="py-4">
-
-        <SectionSubtitle>📢 Anuncios publicitarios</SectionSubtitle>
+        <Heading level={4} variant="section" color="beige" transform="capitalize">
+          📢 Anuncios Publicitarios
+        </Heading>
 
         <div className="flex flex-col gap-4 mt-4 p-2">
-
           {ads.map((ad, index) => (
             <div
               key={index}
@@ -47,9 +47,7 @@ const AdNoticeSection: React.FC<AdNoticeSectionProps> = ({ ads }) => {
               {ad}
             </div>
           ))}
-
         </div>
-
       </UniversalContainer>
     </section>
   );

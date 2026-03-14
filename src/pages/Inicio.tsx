@@ -1,8 +1,8 @@
 import React from "react";
 
-import UniversalSection from "../components/ui/universales/arquitectura/UniversalSection";
-import Hero from "../components/hero/Hero";
-import InfiniteSlider from "../components/personales/InfinitySlider";
+import UniversalSection from "../components/ui/universales/UniversalSection";
+import Hero from "../components/ui/hero/Hero";
+import InfiniteSlider from "../components/ui/arquitectura/InfinitySlider";
 import NuevosProyectos from "../components/incio/NuevosProyectos";
 import NuevosArticulos from "../components/incio/nuevoArticulo";
 import AdNoticeSection from "../components/incio/AdNoticeSection";

@@ -1,5 +1,5 @@
 import React from "react";
-import UniversalSection from "../components/ui/universales/arquitectura/UniversalSection";
+import UniversalSection from "../components/ui/universales/UniversalSection";
 import { useScrollTop } from "../hooks/useScrollTop";
 
 import AboutHistorySection from "../components/about/AboutHistorySection";

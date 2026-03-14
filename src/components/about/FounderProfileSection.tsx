@@ -1,19 +1,16 @@
 import React from "react";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import Heading from "../ui/tipografias/Heading";
 import UniversalImage from "../ui/universales/UniversalImg";
-import CardDescription from "../ui/CardDescrition";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
+import CardDescription from "../ui/cards/CardDescrition";
+import UniversalContainer from "../ui/universales/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
 
 const FounderProfileSection: React.FC = () => {
   return (
     <UniversalContainer>
-
       <UniversalGrid cols={2} className="items-start">
-
         {/* PERFIL */}
         <div className="flex flex-col items-center">
-
           <div
             className="
               w-45 h-45
@@ -32,38 +29,40 @@ const FounderProfileSection: React.FC = () => {
           </div>
 
           <div className="mt-4 text-center">
-            <SectionSubtitle>Erick Hernández</SectionSubtitle>
+            <Heading
+              level={3}
+              variant="section"
+              color="light"
+              transform="capitalize"
+            >
+              Erick Hernández
+            </Heading>
           </div>
-
         </div>
 
         {/* DESCRIPCIÓN */}
         <div className="text-left">
-
           <CardDescription>
             Desarrollador autodidacta con enfoque en software funcional,
             automatización de procesos y ciberseguridad.
-            <br /><br />
-
-            Especialista en herramientas libres como     Bash, Nmap, Wireshark y Metasploit.
-            <br /><br />
-
-            Experiencia en desarrollo full stack usando HTML, CSS,
-            JavaScript, TypeScript, React, Tailwind, Python, PHP, MySQL, Postgres y Mongodb.
-            <br /><br />
-
-            Promotor de la soberanía digital y el acceso libre
-            al conocimiento.
-            <br /><br />
-
-            Actualmente reside en Bogotá y trabaja de forma remota
-            con empresas, emprendedores y comunidades educativas.
+            <br />
+            <br />
+            Especialista en herramientas libres como Bash, Nmap, Wireshark y
+            Metasploit.
+            <br />
+            <br />
+            Experiencia en desarrollo full stack usando HTML, CSS, JavaScript,
+            TypeScript, React, Tailwind, Python, PHP, MySQL, Postgres y Mongodb.
+            <br />
+            <br />
+            Promotor de la soberanía digital y el acceso libre al conocimiento.
+            <br />
+            <br />
+            Actualmente reside en Bogotá y trabaja de forma remota con empresas,
+            emprendedores y comunidades educativas.
           </CardDescription>
-
         </div>
-
       </UniversalGrid>
-
     </UniversalContainer>
   );
 };

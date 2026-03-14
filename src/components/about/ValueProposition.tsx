@@ -2,12 +2,12 @@
 
 import { FaTools, FaLightbulb, FaHeadset, FaShieldAlt } from "react-icons/fa";
 
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
+import UniversalContainer from "../ui/universales/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
 import UniversalCard from "../ui/universales/UniversalCard";
 import UniversalIcon from "../ui/universales/UniversalIcon";
-import CardDescription from "../ui/CardDescrition";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import CardDescription from "../ui/cards/CardDescrition";
+import Heading from "../ui/tipografias/Heading";
 
 export default function ValueProposition() {
   const features = [
@@ -33,7 +33,9 @@ export default function ValueProposition() {
     <UniversalContainer>
       {/* TITULO */}
       <div className="text-center m-4">
-        <SectionSubtitle>🌟 ¿Por qué elegirnos?</SectionSubtitle>
+        <Heading level={4} variant="section" color="beige" transform="capitalize">
+          🌟 ¿Por qué elegirnos?
+        </Heading>
       </div>
 
       {/* GRID DE TARJETAS */}

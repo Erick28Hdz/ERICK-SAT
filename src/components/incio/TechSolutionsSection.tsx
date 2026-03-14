@@ -1,12 +1,11 @@
 import React from "react";
 import { FaShieldAlt, FaCode, FaCloud } from "react-icons/fa";
 
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
+import Heading from "../ui/tipografias/Heading";
 import UniversalCard from "../ui/universales/UniversalCard";
-import CardTitle from "../ui/CardTitle";
-import CardDescription from "../ui/CardDescrition";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
+import CardDescription from "../ui/cards/CardDescrition";
+import UniversalContainer from "../ui/universales/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
 import UniversalIcon from "../ui/universales/UniversalIcon";
 
 const soluciones = [
@@ -34,7 +33,9 @@ const TechSolutionsSection: React.FC = () => {
   return (
     <UniversalContainer>
       <div className="text-center m-4">
-        <SectionSubtitle>🔧 Soluciones Tecnológicas</SectionSubtitle>
+        <Heading level={4} color="beige" variant="section" transform="capitalize">
+          🔧 Soluciones Tecnológicas
+        </Heading>
       </div>
 
       <UniversalGrid cols={3} className="items-stretch">
@@ -45,7 +46,14 @@ const TechSolutionsSection: React.FC = () => {
           >
             <UniversalIcon>{icon}</UniversalIcon>
 
-            <CardTitle>{title}</CardTitle>
+            <Heading
+              level={3}
+              variant="card"
+              color="light"
+              transform="capitalize"
+            >
+              {title}
+            </Heading>
 
             <CardDescription>{description}</CardDescription>
           </UniversalCard>

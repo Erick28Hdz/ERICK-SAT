@@ -1,20 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import UniversalContainer from "../components/ui/universales/arquitectura/UniversalSection";
+import UniversalContainer from "../components/ui/universales/UniversalSection";
 import articles from "../data/Articles";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import SectionTitle from "../components/ui/tipografias/SectionTitle";
-import SectionSubtitle from "../components/ui/tipografias/SectionSubtitle";
-import Button from "../components/ui/Button";
+import { Box, Typography } from "@mui/material";
+import Heading from "../components/ui/tipografias/Heading";
+import Button from "../components/ui/arquitectura/Button";
 import UniversalImage from "../components/ui/universales/UniversalImg";
-import { useScrollTop } from '../hooks/useScrollTop';
+import { useScrollTop } from "../hooks/useScrollTop";
 
 const ArticlePage = () => {
   useScrollTop();
   const { slug } = useParams();
   const article = articles.find((a) => a.slug === slug);
-
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   if (!article) {
     return (
@@ -22,10 +18,7 @@ const ArticlePage = () => {
         <Typography variant="h5" color="error" gutterBottom>
           Artículo no encontrado
         </Typography>
-        <Button
-          variant="contained"
-          component={Link}
-          to="/blog">
+        <Button variant="contained" component={Link} to="/blog">
           Volver al Blog
         </Button>
       </Box>
@@ -33,7 +26,7 @@ const ArticlePage = () => {
   }
 
   return (
-    <UniversalContainer pt={6} pb={3} aria-label={`Artículo: ${article.title}`}>
+    <UniversalContainer aria-label={`Artículo: ${article.title}`}>
       <Box
         sx={{
           width: "100%",
@@ -47,17 +40,20 @@ const ArticlePage = () => {
           textAlign: "left",
         }}
       >
-        Categoría: <SectionSubtitle align="left" as="span">{article.category}</SectionSubtitle>
+        Categoría: <Heading level={3} variant="card" align="left" color="light" transform="capitalize">
+        {article.category}
+      </Heading>
       </Box>
-      <SectionTitle>{article.title}</SectionTitle>
-
+      <Heading level={3} variant="card" color="light" transform="capitalize">
+        {article.title}
+      </Heading>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           gap: 2,
-          maxWidth: '90%',
-          margin: '2rem auto',
+          maxWidth: "90%",
+          margin: "2rem auto",
           color: "var(--color-beige)",
           fontFamily: "var(--font-sans)",
           lineHeight: 1.5,
@@ -67,9 +63,9 @@ const ArticlePage = () => {
         <Box
           sx={{
             flexShrink: 0,
-            width: { xs: '100%', md: 250 },
-            height: 'auto',
-            alignSelf: { xs: 'center', md: 'flex-start' },
+            width: { xs: "100%", md: 250 },
+            height: "auto",
+            alignSelf: { xs: "center", md: "flex-start" },
             marginBottom: { xs: 2, md: 0 },
           }}
         >

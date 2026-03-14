@@ -1,11 +1,10 @@
 import React from "react";
 import { FaLightbulb, FaEye, FaShieldAlt } from "react-icons/fa";
-
-import CardTitle from "../ui/CardTitle";
-import CardDescription from "../ui/CardDescrition";
+import UniversalContainer from "../ui/universales/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
 import UniversalCard from "../ui/universales/UniversalCard";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import Heading from "../ui/tipografias/Heading";
+import CardDescription from "../ui/cards/CardDescrition";
 import UniversalIcon from "../ui/universales/UniversalIcon";
 
 interface AboutItem {
@@ -52,15 +51,17 @@ export default function AboutCards() {
         {aboutData.map(({ id, title, content, icon }) => (
           <UniversalCard key={id} className="p-6 group">
             <div className="text-center">
-              
               {/* ICONO */}
-              {icon && (
-                <UniversalIcon>
-                  {icon}
-                </UniversalIcon>
-              )}
+              {icon && <UniversalIcon>{icon}</UniversalIcon>}
 
-              <CardTitle>{title}</CardTitle>
+              <Heading
+                level={3}
+                variant="card"
+                color="light"
+                transform="capitalize"
+              >
+                {title}
+              </Heading>
 
               <CardDescription>
                 {typeof content === "string" ? (

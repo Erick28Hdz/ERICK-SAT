@@ -19,6 +19,7 @@ const UniversalIcon = ({ children, className = "" }: Props) => {
     sm:text-[35px]
     md:text-[40px]
     mb-2
+    text-(--color-dark)
     transition-all
     duration-300
     group-hover:text-(--color-light-blue)

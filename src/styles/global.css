@@ -1,9 +1,17 @@
+/* =========================
+   GOOGLE FONTS
+========================= */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700&family=Poppins:wght@400;700&display=swap");
+
+/* =========================
+   TAILWIND
+========================= */
 
 @import "tailwindcss";
 
 /* =========================
-   RESET BASE
+   RESET
 ========================= */
 
 *,
@@ -22,37 +30,37 @@ body,
 }
 
 /* =========================
-   VARIABLES DEL SISTEMA
+   DESIGN SYSTEM
 ========================= */
 
 :root {
-  /* Tipografías */
+  /* Typography */
   --font-sans: "Poppins", sans-serif;
   --font-tech: "Orbitron", sans-serif;
   --font-ui: "Inter", sans-serif;
 
-  /* Colores */
+  /* Colors */
   --color-light: #f1efec;
   --color-beige: #d4c9be;
   --color-dark-blue: #123458;
   --color-black: #030303;
   --color-light-blue: #0ff;
+
 }
 
 /* =========================
-   ESTILOS BASE
+   BASE STYLES
 ========================= */
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-black);
-  color: var(--color-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 /* =========================
-   TITULOS BASE
+   HEADINGS
 ========================= */
 
 h1,
@@ -64,13 +72,15 @@ h6 {
   font-family: var(--font-tech);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1rem;
-  max-width: 90vw;
-  word-wrap: break-word;
+  margin-bottom: 0.75rem;
+  word-break: break-word;
 }
 
+a {
+  text-decoration: none;
+}
 /* =========================
-   UTILIDADES GLOBALES
+   UTILITIES
 ========================= */
 
 .spinner {
@@ -84,10 +94,6 @@ h6 {
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
   to {
     transform: rotate(360deg);
   }

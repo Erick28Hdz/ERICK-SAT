@@ -1,29 +1,18 @@
-import React, { useState } from "react";
-import {
-  Grid,
-  Typography,
-  Box,
-} from "@mui/material";
-import UniversalContainer from "../components/ui/universales/arquitectura/UniversalSection";
-import articles from "../data/Articles";
-import SectionTitle from "../components/ui/tipografias/SectionTitle";
-import IntroSection from "../components/intro/IntroSection";
-import BasePaper from "../components/ui/Paper";
-import SearchInput from "../components/ui/SearchInput";
-import CustomSelect from "../components/ui/CustomSelect";
-import UniversalImage from "../components/ui/universales/UniversalImg";
-import { Link } from "react-router-dom";
-import CardTitle from "../components/ui/CardTitle";
-import CardDescription from "../components/ui/CardDescrition";
-import { useScrollTop } from "../hooks/useScrollTop";
-import { usePagination } from "../hooks/usePagination";
+import { useState } from "react";
+import UniversalContainer from "../components/ui/universales/UniversalSection";
 import UniversalPagination from "../components/ui/universales/UniversalPagination";
+import BlogIntroSection from "../components/blog/BlogIntroSection";
+import BlogFilters from "../components/blog/BlogFilters";
+import BlogGrid from "../components/blog/BlogGrid";
+import articles from "../data/Articles";
+import { usePagination } from "../hooks/usePagination";
+import { useScrollTop } from "../hooks/useScrollTop";
 
-const Blog: React.FC = () => {
+const Blog = () => {
   useScrollTop();
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todas");
-  const articlesPerPage = 6;
 
   const filteredArticles = articles.filter((a) => {
     const searchMatch =
@@ -35,88 +24,22 @@ const Blog: React.FC = () => {
     return searchMatch && categoryMatch;
   });
 
-  const {
-    currentPage,
-    setCurrentPage,
-    currentItems: currentArticles,
-    totalPages
-  } = usePagination(filteredArticles, articlesPerPage);
+  const { currentPage, setCurrentPage, currentItems, totalPages } =
+    usePagination(filteredArticles, 6);
 
   return (
-    <UniversalContainer pt={6} pb={3}>
-      <SectionTitle>Nuestro Blog</SectionTitle>
-      <IntroSection
-        description={
-          <Typography
-            variant="body1"
-            className="description"
-          >
-            <p>
-              ¿Estás listo para ir más allá de lo convencional? En nuestro blog te sumergirás en artículos especializados que no solo explican la tecnología, sino que la convierten en oportunidades reales para crecer, emprender o innovar.
-            </p>
-            <p>
-              La tecnología evoluciona. Tú también deberías hacerlo. Comienza tu lectura ahora.
-            </p>
-          </Typography>
-        }
-        imageComponent={<UniversalImage src="/images/blog.jpg" alt="Nuestros servicios" />}
+    <UniversalContainer>
+      <BlogIntroSection />
+
+      <BlogFilters
+        search={search}
+        setSearch={setSearch}
+        category={category}
+        setCategory={setCategory}
+        resetPage={() => setCurrentPage(1)}
       />
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 10,
-          px: 1,
-          margin: "2rem",
-        }}
-      >
-        <SearchInput
-          value={search}
-          onChange={setSearch}
-          placeholder="Buscar artículo o palabra clave"
-        />
-
-        <Box sx={{ minWidth: 220 }}>
-          <CustomSelect
-            label="Categoría"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-              setCurrentPage(1); // Reiniciar la paginación al cambiar filtro
-            }}
-            options={["Todas", "ciberseguridad", "scripts", "formación", "casos"]}
-            fullWidth
-          />
-        </Box>
-      </Box>
-
-      <Grid container spacing={4} justifyContent={"center"} margin={5}>
-        {currentArticles.length > 0 ? (
-          currentArticles.map((article) => (
-            <Grid item xs={12} sm={6} md={4} key={article.slug}{...({} as any)}>
-              <BasePaper sx={{ height: '100%' }}>
-                <Link to={`/blog/${article.slug}`} style={{ textDecoration: "none" }}>
-                  <CardTitle>{article.title}</CardTitle>
-                </Link>
-                <CardDescription>{article.desc}</CardDescription>
-                <Typography
-                  variant="caption"
-                  sx={{ mt: 2, color: "var(--color-beige)" }}
-                >
-                  Categoría: {article.category}
-                </Typography>
-              </BasePaper>
-            </Grid>
-          ))
-        ) : (
-          <Typography variant="h6" textAlign="center" width="100%" color="text.secondary">
-            No se encontraron artículos con esos criterios.
-          </Typography>
-        )}
-      </Grid>
+      <BlogGrid articles={currentItems} />
 
       {totalPages > 1 && (
         <UniversalPagination

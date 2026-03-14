@@ -4,10 +4,10 @@ import { servicios } from "../../data/Servicios";
 import { parsePrice, formatPrice } from "../../utils/formatPrice";
 import { useExchangeRates } from "../../hooks/useExchangeRates";
 
-import ServiceCard from "./ServiceCard";
+import ServiceCard from "../ui/cards/ServiceCard";
 import UniversalPagination from "../ui/universales/UniversalPagination";
-import UniversalGrid from "../ui/universales/arquitectura/UniversalGrid";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import UniversalGrid from "../ui/universales/UniversalGrid";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 
 interface Props {
   categoria: number;

@@ -1,8 +1,8 @@
 import React from "react";
-import UniversalContainer from "../ui/universales/arquitectura/UniversalContainer";
+import UniversalContainer from "../ui/universales/UniversalContainer";
 import { proyectos } from "../../data/Portafolio";
-import SectionSubtitle from "../ui/tipografias/SectionSubtitle";
-import PortfolioCard from "../portafolio/PortafolioCard";
+import Heading from "../ui/tipografias/Heading";
+import PortfolioCard from "../ui/cards/PortafolioCard";
 
 // Tomamos los 3 más recientes por fecha
 const ultimosProyectos = proyectos
@@ -13,16 +13,18 @@ const ultimosProyectos = proyectos
 const NuevosProyectos: React.FC = () => {
   return (
     <UniversalContainer>
-
       <div className="text-center">
-        <SectionSubtitle>📰 Nuevos Proyectos</SectionSubtitle>
+        <Heading level={4} variant="section" color="beige" transform="capitalize">
+          🌐 Novedades en Servicios
+        </Heading>
       </div>
 
-      <div className="grid gap-8 mt-6 pt-4 justify-items-center
+      <div
+        className="grid gap-8 mt-6 pt-4 justify-items-center
                       grid-cols-1
                       sm:grid-cols-2
-                      md:grid-cols-3">
-
+                      md:grid-cols-3"
+      >
         {ultimosProyectos.map((proyecto) => (
           <PortfolioCard
             key={proyecto.id}
@@ -41,7 +43,6 @@ const NuevosProyectos: React.FC = () => {
           Aún no hay proyectos agregados recientemente.
         </p>
       )}
-
     </UniversalContainer>
   );
 };
